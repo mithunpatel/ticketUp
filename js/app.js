@@ -76,6 +76,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 });
 
+  app.directive('popup', function() {
+  return {
+    templateUrl: '/js/views/popupForm.html'
+  };
+});
 
     app.controller('happyhour', ['$scope', 'SheetFacotry', function($scope, SheetFacotry) {
         SheetFacotry.getAllRepo(function(response) {

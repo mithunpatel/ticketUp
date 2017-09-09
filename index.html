@@ -26,19 +26,19 @@
 	  <meta property="og:type"          content="website" />
 	  <meta property="og:title"         content="TicketUp | Happy Hours" />
 	  <meta property="og:description"   content="Happy Hours around You" />
-	  <meta property="og:image"         content="http://ticketup.in/HappyHour.png" />
+	  <meta property="og:image"         content="http://ticketup.in/images/HappyHour.png" />
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="msapplication-starturl" content="/">
   <meta name="theme-color" content="#fff">
-  <link rel="shortcut icon" href="/HappyHour.png" type="image/png">
+  <link rel="shortcut icon" href="/images/HappyHour.png" type="image/png">
   <link rel="manifest" href="/manifest.json">
 
-	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-	<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/bower_components/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/style.css">
 
@@ -80,81 +80,7 @@
 			 </strong>  
 	</button></a> -->
 
-<!-- popUp form for add Business -->
-  <div class="modal fade" id="addBusiness" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" id="postAddSubmit" style="text-align: center;">Add Your Business</h4>
-        </div>
-        <div class="modal-body" align="center">
-          
-          <form class="form-inline" id="addBusinessform" method="POST" onsubmit="submitAddbusinessdata();">
-            <div class="form-group">
-              <label for="businessName">Business Name:</label><br>
-              <input type="text" class="form-control" id="business_Name" placeholder="Enter Business Name" name="businessName" required>
-            </div>
-            <div class="form-group">
-              <label for="name">Name:</label><br>
-              <input type="text" class="form-control" id="businessUser_name" placeholder="Enter Name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email:</label><br>
-              <input type="email" class="form-control" id="businessUser_email" placeholder="Enter Email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="mobile">Mobile No:</label><br>
-              <input type="text" class="form-control" id="businessUser_mobile" placeholder="Enter Mobile" name="mobile" required>
-            </div><br>
-            <input name="submit" type="submit" class="btn btn-success">
-        </form>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-<!-- popUp form for Claim Business -->
-  <div class="modal fade" id="claimBusiness" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title" id="postClaimSubmit" style="text-align: center;">Claim Your Business</h4>
-        </div>
-        <div class="modal-body" align="center">
-          
-          <form class="form-inline" id="clainBusinessform" method="POST" onsubmit="submitbusinessdata();">
-            <div class="form-group">
-              <label for="businessName">Business Name:</label><br>
-              <input type="text" class="form-control" id="businessName" placeholder="Enter Business Name" name="businessName" readonly>
-            </div>
-            <div class="form-group">
-              <label for="name">Name:</label><br>
-              <input type="text" class="form-control" id="businessUsername" placeholder="Enter Name" name="name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email:</label><br>
-              <input type="email" class="form-control" id="businessUseremail" placeholder="Enter Email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="mobile">Mobile No:</label><br>
-              <input type="text" class="form-control" id="businessUsermobile" placeholder="Enter Mobile" name="mobile" required>
-            </div><br>
-            <input name="submit" type="submit" class="btn btn-success">
-        </form>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-	
+<div popup></div>	
 <!-- <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
@@ -194,19 +120,19 @@ r.src=l.src=("https:"==a.location.protocol?"https://":"http://")+b;s.parentNode.
 	</script> -->
 
   <script>
-function openNav() {
-    document.getElementById("mySidenav").style.width = "200px";
-    // document.getElementById("header").style.opacity = "0";
-    document.getElementById("main").style.marginLeft = "200px";
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "200px";
+        // document.getElementById("header").style.opacity = "0";
+        document.getElementById("main").style.marginLeft = "200px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-     // document.getElementById("header").style.opacity = "1";
-     document.getElementById("main").style.marginLeft = "0px";
-     document.body.style.backgroundColor = "#fff";
-}
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+         // document.getElementById("header").style.opacity = "1";
+         document.getElementById("main").style.marginLeft = "0px";
+         document.body.style.backgroundColor = "#fff";
+    }
 </script>
 
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
