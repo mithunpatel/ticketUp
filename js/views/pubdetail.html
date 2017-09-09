@@ -1,0 +1,97 @@
+ <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5985dfd69c50d5bf"></script>
+
+ <div class=" row container-fluid" align="center" style="background-color: #ecf0f1; width: 100%;padding-right: 0;">
+ <div class="header navbar-top" align="center" id="header">
+    
+        <div class="row container"> 
+            <div class="col-sm-6 col-xs-6"><a href="/"><img src="/TicketUp.png" style="height: 50px;width: 100px;padding-bottom: 0;padding-top: 0;"></a></div>
+            <!-- <div class="col-sm-4 col-xs-4" align="center" style="padding-top: 2%;">
+                <a class="btn btn-xs btn-info" data-toggle="modal" data-target="#claimBusiness">Add listing</a>
+            </div> -->
+                
+                    <div class="col-sm-6 col-xs-6">
+                        <a href="/"><img src="/HappyHour.png" style=" height: 50px;width: 50px;padding-bottom: 0;padding-top: 0;"></a>
+                    </div>
+                
+        </div>
+  
+    </div>
+<div class="col-sm-2"></div>
+ <div align="center" class="col-sm-8 col-xs-8 imageBody">
+        
+        <img src="{{y.Image}}" class="user_image" style="border-radius: 10px; width: 90%; height: 200px;" alt="Pub Image">
+        <p align="center" id="imglocation" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-map-marker"></span> {{y.Area}}</p>
+        <p id="rating" class="btn btn-xs btn-warning">{{y.Rating}} <span >&#x2605;</span></p>
+
+        <button type="button" class="btn btn-default btn-sm user-name" id="user-name" style="width:80% !important; height: 50px !important; text-align: center;">
+            <strong style="color: #2c3e50; font-size: 20px;">{{y.Pub_Name}}</strong><br>
+            <strong style="color: #95a5a6; text-align:center;">Happy Hours</strong>
+        </button>
+        
+            <div class=" table-responsive" id="tableDetail">
+                <table class="table" style="font-size: 12px; margin-bottom: 0;">
+                <tr class="row">
+                        <td class="col-xs-2" align="center"><strong><span style="color: #95a5a6;"><span class="glyphicon glyphicon-earphone"></span> Contact</span><br> <a href=""> {{y.Phone_Number}}</a></strong>
+                        </td>
+                    
+                        <td class="col-xs-8" align="center">
+                       <strong style="color: #0099ff; text-align: left; font-size: 100%; font-weight: bold;">{{y.Days}}<br>{{y.Happy_Hours}}</strong><br>
+                        
+                            <!-- <div class="addthis_inline_share_toolbox_3jr8" align="center"></div> -->
+                            
+                        </td>
+
+                    <td class="col-xs-2" align="center">
+                         <!-- Facebook share -->
+                        <div class="fb-share-button" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank">Share</a></div><br>
+
+                        <!-- Twitter Share -->
+                        <div><a href="https://twitter.com/share" class="twitter-share-button" data-hashtags="ticketUp,Receptio" data-via="receptio_in" data-count="vertical">Tweet</a></div>
+                    </td>
+                </tr>
+                 </table>
+                <div class="col-sm-12 col-xs-12 table-responsive"  align="center">
+                    <table class="table">
+                        <tr align="center" style="padding: 0;">
+                            <td><img src="/images/001-pint.svg" style="width: 50px; height: 50px;"><br>
+                                    <i style="font-size:14px" class="fa">&#xf156;</i> {{y.Per_Pitcher}}
+                            </td>
+                            <td><img src="/images/002-music.svg" style="width: 50px; height: 50px;"><br>
+                                    {{y.Music}}
+                            </td>
+                            <td><img src="/images/003-women.svg" style="width: 50px; height: 50px;"><br>
+                                    {{y.Ladies_Night}}
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+                <div align="center"  id="{{y.Pub_Name}}">
+                                <button class="btn btn-sm btn-block" style=" background-color: #ecf0f1; color: #111;" data-toggle="modal" data-target="#claimBusiness" onclick="display(this)"><strong>Claim Business</strong></button>
+                                </div>
+            </div>
+
+    </div>
+   <div class="col-sm-2"></div>
+
+   <update-meta property="og:url"           content="{{currenturl}}" ></update-meta>
+  <!-- <update-meta property="og:type"          content="website" ></update-meta>
+  <update-meta property="og:title"         content="Your Website Title" ></update-meta>
+  <update-meta property="og:description"   content="Your description" ></update-meta> -->
+  <update-meta property="og:image"         content="{{y.Image}}" ></update-meta>
+
+    </div>
+
+                        <div id="fb-root"></div>
+                        <script>(function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) return;
+                          js = d.createElement(s); js.id = id;
+                          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                          fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));</script>
+
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+                       
+

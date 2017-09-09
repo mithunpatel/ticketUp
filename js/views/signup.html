@@ -1,0 +1,148 @@
+<div class="header navbar-fixed-top" align="center" id="header">
+    
+        <div class="row container"> 
+            <div class="col-sm-6 col-xs-6"><a href="/"><img src="/TicketUp.png" style="height: 50px;width: 100px;padding-bottom: 0;padding-top: 0;"></a></div>
+            <!-- <div class="col-sm-4 col-xs-4" align="center" style="padding-top: 2%;">
+                <a class="btn btn-xs btn-info" data-toggle="modal" data-target="#claimBusiness">Add listing</a>
+            </div> -->
+                
+                    <div class="col-sm-6 col-xs-6">
+                        <a href="/"><img src="/HappyHour.png" style=" height: 50px;width: 50px;padding-bottom: 0;padding-top: 0;"></a>
+                    </div>
+                
+        </div>
+  
+    </div>
+	<div class="container-fluid" >
+		<img src="/header_bg.jpg" id="pageBackgrnd">
+	
+	<div id="pageFrontnd" class="jumbotron">
+		<div class="col-sm-12" id="signin_Box" align="center">
+			<div>
+				<!-- <div align="center">
+				<img src="logo.png" id="logo" >
+			</div> -->
+			<div align="center" class="form-boxes">
+				<form ng-submit="signup()">
+				<div class="form-group left-inner-addon">
+					<i class="icon-user"></i>
+			      <input type="text" ng-model="username" class="form-control input-lg" placeholder="&#xf007; Username" id="username" style="background: transparent; background-color: rgba(0,0,0,0.2); font-family:Arial, FontAwesome" required>
+			     </div>
+			     <div class="form-group">
+			      <input type="Password" ng-model="userpassword" class="form-control input-lg" placeholder="&#xf13e; Password" style="background: transparent;background-color: rgba(0,0,0,0.2); font-family:Arial, FontAwesome">
+			     </div>
+			     <div class="form-group">
+			      <input type="Password" ng-model="cnfUserpassword" class="form-control input-lg" placeholder="&#xf13e; Confirm Password" style="background: transparent;background-color: rgba(0,0,0,0.2); font-family:Arial, FontAwesome">
+			     </div>
+			     <div class="form-group">
+			      <input type="email" ng-model="userEmail" class="form-control input-lg" placeholder="&#xf003; Email" style="background: transparent;background-color: rgba(0,0,0,0.2); font-family:Arial, FontAwesome">
+			     </div>
+			     <div class="form-group">
+			     	<label class="checkbox-inline" ng-model="check" style="color: #111; float: left; padding-left: 10%;"><input type="checkbox" value="">I agree to the <span><a style="color: #111;"><u>Terms of Use</u></a></span></label>
+			     </div>
+			     <div class="form-group" id="createAcc">
+			      <input type="submit" class="form-control input-lg btn btn-primary" value="CREATE ACCOUNT">
+			     </div>
+			     </form>
+			     
+			</div>
+			</div>
+			</div>
+	</div>
+	</div>
+
+<style>
+body{
+	width: 100%;
+}
+#signin_Box{
+	
+	z-index: 1;
+}
+	#pageBackgrnd {
+		width: 100%;
+        background-size: cover;
+  			display: block;
+		  filter: blur(7px);
+		  -webkit-filter: blur(7px);
+		  height: 800px;
+		  left: 0;
+		  position: fixed;
+		  right: 0;
+		  z-index: 1;
+		  color: #fff;
+	}
+	#pageFrontnd{
+		width: 100%;
+		margin-top: 10%;
+	}
+	#logo{
+		width: 100px;
+		height: 90px;
+		    margin-bottom: 4%;
+	}
+	
+	.form-boxes input{
+		border-radius: 25px;
+		color: #fff;
+	}
+	::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #fff !important;
+    z-index: 1;
+    font-size: 15px;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	   color:    #fff !important;
+	   z-index: 1;
+	   opacity:  1;
+	   font-size: 15px;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+	   color:    #fff !important;
+	   z-index: 1;
+	   opacity:  1;
+	   font-size: 15px;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	   color:    #fff !important;
+	   z-index: 1;
+	   font-size: 15px;
+	}
+	::-ms-input-placeholder { /* Microsoft Edge */
+	   color:    #fff !important;
+	   z-index: 1;
+	   font-size: 15px;
+	}
+	
+	
+	@media (max-width: 768px) {
+        #pageFrontnd{
+		width: 100%;
+		margin-top: 15%;
+	}
+        .form-boxes{
+		width: 75%;
+	   }
+	   /*#createAcc{
+		padding-top: 30%;
+	}*/
+    }
+    @media (min-width: 992px) {
+        #pageFrontnd{
+		width: 100%;
+		padding-top: 10%;
+	}
+        .form-boxes{
+		width: 35%;
+		}
+		#createAcc{
+		padding-top: 20%;
+	}
+    }
+
+    @media (max-width: 991px) {
+       
+    }
+
+
+</style>
