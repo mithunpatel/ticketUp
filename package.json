@@ -1,12 +1,12 @@
 {
-  "name": "shoperk_node",
+  "name": "ticketUp",
   "version": "1.0.0",
-  "description": "",
+  "description": "TicketUp is a project for receptio.in under gamespace tech pvt ltd.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start":"lite-server"
   },
-  "author": "",
+  "author": "mith1994@gmail.com",
   "license": "ISC"
 }
