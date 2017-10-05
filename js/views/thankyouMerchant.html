@@ -1,0 +1,109 @@
+<!-- <div class="container" id="thankYou">
+    <div class="">
+      <div>
+        <div class="header">
+          <h4>Thankyou</h4>
+        </div>
+        <div class="" align="center">
+          
+{{redemmedThank}}
+        </div>
+        <div class="footer">
+          <button type="button" class="btn btn-default" >Close</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+
+<div class="modal fade" id="thankyouModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="col-sm-12 col-md-12" style="background-color: #74b3e6;  padding: 0; z-index: 1;" align="center">
+            <div style="padding-top: 2vh; padding-bottom: 2vh; z-index: 1;">
+              <div style="background-color: #fff; width:120px; height: 120px; border-radius: 75px;">
+                <img src="/images/Passes(selected).svg" style="height: 90px; padding-top: 15px;">
+              </div>
+              </div>
+            </div>
+        </div>
+        <div class="modal-body">
+          <div class="col-sm-12 col-md-12" style="height: 30vh; padding: 0;margin-bottom: 5px; z-index: 1; background-color: #fff;  box-shadow: 0px 2px 0px 2px #e2e5e6;">
+              <div class="table-responsive" align="center">
+                <h4 style="color: #5bc0de; margin-top: 0;">Pass Redeemed</h4>
+                <table class="table">
+                  <tr>
+                    <td align="left">CUSTOMER</td>
+                    <td align="right">{{mobile}}</td>
+                  </tr>
+                  <tr>
+                    <td align="left">PASS</td>
+                    <td align="right">{{redemmedPass}}</td>
+                  </tr>
+                  <tr>
+                    <td align="left">UNITS</td>
+                    <td align="right">{{unit}}</td>
+                  </tr>
+                </table>
+                <div style="margin-top: 5%;">
+                <a class="btn btn-block btn-info" style="width: 80%;" ng-click="closeThank()">Close</a>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+
+
+  <!-- <div class="container-fluid">
+
+    
+  <div class="container mainview">
+  <img src="/images/BG_PC.png" id="pageBackgrnd">
+    
+    <div class="row" align="center" style="background-color: #fff;">
+            
+            <div class="col-sm-12 col-md-12" style="background-color: #74b3e6;  padding: 0; z-index: 1;">
+            <div style="padding-top: 2vh; padding-bottom: 2vh; z-index: 1;">
+              <div style="background-color: #fff; width:120px; height: 120px; border-radius: 75px;">
+                <img src="/images/hands.svg" style="height: 90px; padding-top: 15px;">
+              </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12" style="height: 30vh; padding: 0;margin-bottom: 5px; z-index: 1; background-color: #fff;  box-shadow: 0px 2px 0px 2px #e2e5e6;">
+              <div class="table-responsive">
+                <h4 style="color: #5bc0de; margin-top: 0;">Pass Redeemed</h4>
+                <table class="table">
+                  <tr>
+                    <td align="left">CUSTOMER</td>
+                    <td align="right">{{mobile}}</td>
+                  </tr>
+                  <tr>
+                    <td align="left">PASS</td>
+                    <td align="right">{{redemmedPass}}</td>
+                  </tr>
+                  <tr>
+                    <td align="left">UNITS</td>
+                    <td align="right">{{unit}}</td>
+                  </tr>
+                </table>
+                <div style="margin-top: 5%;">
+                <a class="btn btn-block btn-info" style="width: 80%;" ng-click="closeThank()">Close</a>
+                </div>
+              </div>
+            </div>
+            
+    </div>
+  </div>
+</div> -->

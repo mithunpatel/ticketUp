@@ -60,6 +60,8 @@
 </head>
 
 <body>
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script> -->
+
 <!-- <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -72,6 +74,7 @@
 	
 		<div ui-view></div>
 
+<div our-story></div>
 
 	<!-- <a data-toggle="modal" data-target="#addBusiness">
 	<button class="order" style="position: fixed; top: 50%; float: right; border-radius: 10px;">
@@ -80,7 +83,7 @@
 			 </strong>  
 	</button></a> -->
 
-<div popup></div>	
+<div popup-form></div>	
 <!-- <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase-database.js"></script>
@@ -119,31 +122,35 @@ r.src=l.src=("https:"==a.location.protocol?"https://":"http://")+b;s.parentNode.
 	s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");
 	</script> -->
 
-  <script>
-    function openNav() {
-        document.getElementById("mySidenav").style.width = "200px";
-        // document.getElementById("header").style.opacity = "0";
-        document.getElementById("main").style.marginLeft = "200px";
-        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    }
-
-    function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-         // document.getElementById("header").style.opacity = "1";
-         document.getElementById("main").style.marginLeft = "0px";
-         document.body.style.backgroundColor = "#fff";
-    }
-</script>
+  
 
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
+  <!-- <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.min.js"></script> -->
     <!-- <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script> -->
 	<script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
-	<script type="text/javascript" src="js/update-meta.js"></script>
+	<!-- <script type="text/javascript" src="js/update-meta.js"></script>
+  <script src="bower_components/angularjs-social-login/angularjs-social-login.js"></script> -->
+
 
 
 	<script type="text/javascript" src="js/app.js"></script>
-	<script type="text/javascript" src="js/factory.js"></script>
+  <script type="text/javascript" src="js/indexScript.js"></script>
+  <script type="text/javascript" src="js/services/sheetFacotry.js"></script>
+  <script type="text/javascript" src="js/services/authentication.js"></script>
+  <script type="text/javascript" src="js/services/passesSevice.js"></script>
+  <script type="text/javascript" src="js/services/paymentService.js"></script>
+	<!-- <script type="text/javascript" src="js/factory.js"></script> -->
+  <script type="text/javascript" src="js/controllers/happyhourCtrl.js"></script>
+  <script type="text/javascript" src="js/controllers/brewPassController.js"></script>
+  <script type="text/javascript" src="js/controllers/signUpController.js"></script>
+  <script type="text/javascript" src="js/controllers/signInController.js"></script>
+  <script type="text/javascript" src="js/controllers/passController.js"></script>
+  <script type="text/javascript" src="js/controllers/profileController.js"></script>
+  <script type="text/javascript" src="js/controllers/thankyouController.js"></script>
+  <script type="text/javascript" src="js/controllers/checkoutController.js"></script>
+  <script type="text/javascript" src="js/controllers/merchantController.js"></script>
 	<script type="text/javascript" src="js/form.js"></script>
 </body>
 </html>

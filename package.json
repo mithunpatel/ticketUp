@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"lite-server"
+    "start": "lite-server"
   },
   "author": "mith1994@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "satellizer": "^0.15.5"
+  }
 }

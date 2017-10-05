@@ -15,7 +15,7 @@
 		 $.post({
 		  type: 'post',
 		  crossDomain: true,
-		  url: 'http://www.receptio.in/ticketup',
+		  url: 'https://www.receptio.in/ticketup',
 		  // contentType: "application/json; charset=utf-8",
 		  data:submitData,
 		  success: function (response) {
@@ -61,7 +61,7 @@
     //         'access-control-allow-credentials' :true
 			
     //     },
-		  url: 'http://www.receptio.in/ticketup',
+		  url: 'https://www.receptio.in/ticketup',
 		  data:submitData,
 		  success: function (response) {
 

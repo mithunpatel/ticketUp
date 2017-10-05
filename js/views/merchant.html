@@ -1,0 +1,90 @@
+<div class="container-fluid">
+<!-- <div merchant-thank class="container-fluid" style="height: 100%; padding: 4%;margin-bottom: 5px; z-index: 1; background-color: #fff;  box-shadow: 0px 2px 0px 2px #e2e5e6; border-radius: 0px 0px 7px 7px;" ng-if="redemmedThank"></div> -->
+<div merchant-thank></div>
+<div class="container mainview" id="fademerchantpage">
+  <img src="/images/BGcopy.jpg" id="pageBackgrnd">
+		<div class="row" align="center" style="margin-top: 5vh;  background-color: #fff;">
+           <div class="col-sm-12 col-md-12" style="background-color: #ddd;  padding: 10px; z-index: 1; border-radius: 7px 7px 0px 0px;">
+              <div>
+                <h4>Enter Phone Number</h4>
+                <form ng-submit="mobileSubmit()">
+                <input class="form-control" type="number"  name="phonenumber" ng-model="mobile" placeholder="Phone Number" style="width: 80%;" required autofocus>
+                    <!-- <div role="alert">
+                      <span class="error" ng-show="merchant.phonenumber.$error.required" style="color: red;">
+                      Mobile Number Required!</span>
+                  </div> -->
+                  <br>
+                <input type="submit" value="Confirm" class="btn btn-block btn-info" style="width: 80%;">
+                </form>
+                <br>
+              </div>
+              </div>
+
+              <div class="col-sm-12 col-md-12" style="height: 100%; padding: 4%;margin-bottom: 5px; z-index: 1; background-color: #fff;  box-shadow: 0px 2px 0px 2px #e2e5e6; border-radius: 0px 0px 7px 7px;">
+              
+                <p style="color: #C3C3C3; font-size: 12px;">--PASSES REDEEMABLE--</p>
+              <div ng-if="!userPasses">
+                  <img src="/images/Passes(unselected).svg" style="width: 80px;">
+                  <p style="color: #C3C3C3; font-size: 12px;">No Passes Available</p>
+              </div>
+              <p style="color: red; font-size: 22px;">{{err.errors.account}}</p>
+              <div class="row" ng-if="userPasses">
+              <div ng-repeat="pass in userPasses" ng-if="!err.errors.account">
+                <div class="col-sm-5 col-xs-5" style="padding: 5px 5px 5px 5px;">
+                  <img src="{{pass.image}}" style="width: 100%; height: 20vh;">
+                </div>
+                <div class="col-sm-7 col-xs-7" style="padding: 0; height: 110px;">
+                  <div class="table-responsive">
+                  <table class="table">
+                    <tr>
+                      <td style="font-size: 10px; padding: 5px 5px 5px 5px;" align="left">UNIT LEFT</td>
+                      <td style="font-size: 10px; padding: 5px 5px 5px 5px;" align="right">{{pass.available}}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 10px; padding: 5px 5px 5px 5px;" align="left">VALIDITY</td>
+                      <td style="font-size: 10px; padding: 5px 5px 5px 5px;" align="right">{{pass.expiry}}</td>
+                    </tr>
+                    <tr>
+                      <td style="font-size: 10px; padding: 5px 5px 5px 5px;" align="left">SELECT QTY</td>
+                      <td style="font-size: 10px; padding: 5px 5px 5px 5px;" align="right">
+                      <img src="/images/remove.svg" style="width: 14px; cursor: pointer;" ng-click="addRemoveValue(-1,pass)">
+                      <input type="number" name="quantity" ng-model="pass.selectQty" style="border: none; width: 15px;" id="qty{{pass.type}}{{pass.rid}}" class="ng-show">
+                      <img src="/images/add.svg" style="width: 14px; cursor: pointer;" ng-click="addRemoveValue(1,pass)">
+                      </td>
+                    </tr>
+                  </table>
+                  </div>
+                </div>
+
+                <div>
+                <button class="btn-block btn-info" id="varify{{pass.type}}{{pass.rid}}" ng-click="varify(pass)" style="width: 90%;">VERIFY</button>
+                </div>
+
+                <div class="row ng-hide" id="otp{{pass.type}}{{pass.rid}}" style="width: 90%;">
+                <span style="color: red;" ng-if="redemmedThankErr">{{redemmedThankErr}}</span>
+                  <form ng-submit="otpSubmit(otpInput)">
+
+                    <div class="col-xs-7 col-sm-7" style="padding-left: 0;" align="right">
+
+                      <input type="text" name="otpInput" placeholder="Enter OTP" ng-model="otpInput" autofocus>
+
+                    </div>
+                    <div class="col-xs-5 col-sm-5" style="padding-right: 0; padding-left: 2%;" align="left">
+                      <input type="submit" name="" class="btn-info btn-block">
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+            
+    </div>
+
+
+    </div>
+	
+
+</div>
+
+</div>
+      

@@ -1,0 +1,44 @@
+{
+  "pass":[
+	{
+		"price": 1000,
+		"total": 100,
+		"availabe": 88,
+		"offer": 5,
+		"saveupto": 250,
+		"validity": 3,
+		"partners":{
+		  "1":"watsons",
+		  "2":"hungry hogs",
+		  "3":"ouaf"
+		  
+		}
+	},
+	{
+		"price": 3000,
+		"total": 50,
+		"availabe": 20,
+		"offer": 5,
+		"saveupto": 300,
+		"validity": 2,
+			"partners":{
+		  "1":"ouaf",
+		  "2":"hungry hogs",
+		  "3":"watsons"
+		}
+	},
+	{
+		"price": 5000,
+		"total": 20,
+		"availabe": 12,
+		"offer": 5,
+		"saveupto": 350,
+		"validity": 1,
+			"partners":{
+		  "1":"hungry hogs",
+		  "2":"pipe",
+		  "3":"ouaf"
+		}
+	}
+	]
+}

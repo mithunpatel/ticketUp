@@ -1,33 +1,38 @@
-<div class="container-fluid" style="background-color: #f5f5f5;width: 100%; padding: 0;"  id="main">
+<div class="container-fluid" style="background-color: #e1dede;width: 100%; padding: 0;"  id="fadeformodal">
+
 <div class="navbar-fixed-top" id="header">
         <div class="row"> 
         <div id="mySidenav" class="sidenav">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <a href="#"><img src="/images/TicketUp.png" style="height: 65px;"></a><hr>
-              <a data-toggle="modal" data-target="#addBusiness">CLAIM BUSINESS</a><hr>
-              <a href="#">BLOGS</a><hr>
-              <a href="#">TERMS & CONDITION</a><hr>
-              <a href="#">PRIVACY POLICY</a><hr>
-              <div style="margin-top: 70%; color: #95a5a6;" class="footer-bottom"><a href="#" style="color: #95a5a6;">Powered By <img src="/images/logo.png" style="height: 15px; width: 15px;"> Receptio</a></div>
+              <a href="/"><img src="/images/TicketUp.png" style="height: 65px;"></a><hr>
+              <a href="#">NOTES</a><hr>
+              <a href="" data-toggle="modal" data-target="#ourstoryModal">OUR STORY</a><hr>
+              <a href="" data-toggle="modal" data-target="#addBusiness">ADD BUSINESS</a><hr>
+              <!-- <a href="#">BLOGS</a><hr> -->
+              <a href="#!/termscondition">TERMS & CONDITION</a><hr>
+              <a href="#!/privacypolicy">PRIVACY POLICY</a><hr>
+              <div style="margin-top: 45vh; color: #95a5a6;" class="navbar-bottom"><a href="#" style="color: #95a5a6;">Powered By <img src="/images/logo.png" style="height: 15px; width: 15px;"> Receptio</a></div>
         </div>
+        <div class="container mainview">
             <div class="col-sm-2 col-xs-2"><span style="cursor:pointer;padding-left: 10px;" onclick="openNav()"><img style="height:20px;" src="/images/002-menu.svg"></span>
             </div>
-            <div class="col-sm-8 col-xs-8" style="font-family: 'Comfortaa',sans-serif; font-size: 15px; padding-top: 2%; padding-bottom: 0; padding-left: 0;" align="center">
-                <strong><span class="glyphicon glyphicon-map-marker"></span>
-                <select ng-model="selectedArea" ng-options="x.Area as x.Area for x in pubs | unique:'Area' " style="border:none; width: 50%;">
+            <div class="col-sm-8 col-xs-8" style="font-family: 'Comfortaa',sans-serif; font-size: 15px; padding-left: 0;" align="center">
+                <strong><!-- <span class="glyphicon glyphicon-map-marker"></span> --><span><img src="/images/004-placeholder.svg" style="width: 15px; padding-bottom: 4px;"></span>
+                <select ng-model="selectedArea" ng-options="x.Area as x.Area for x in pubs | unique:'Area' " style="border:none; width: 120px;">
                       <option value="">Select Area</option>
                 </select>
                </strong>
             </div>
                 <div class="col-sm-2 col-xs-2" align="right" style="padding-right: 0;">
-                    <a href="/"><span style="cursor:pointer; padding-right: 10px;"><img style="height:15px;" src="/images/001-signs.svg"></span></a>
+                    <!-- <a href="/"><span style="cursor:pointer; padding-right: 10px;"><img style="height:15px;" src="/images/001-signs.svg"></span></a> -->
                 </div>
         </div>
-</div>
+</div></div>
 <br><br>
 
-
+<div class="container mainview">
 <div class="row" style="margin-right: 0;">
+
     <div class="col-xs-12 col-sm-12 col-md-12" style="padding: 0;" align="center">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -40,15 +45,15 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
               <div class="item active">
-                <img src="/images/header_bg.jpg" alt="img1" style="width:100%;height: 200px;">
+                <img src="/images/header_bg.jpg" alt="img1" style="width:80%;height: 200px;">
               </div>
 
               <div class="item">
-                <img src="/images/TicketUp.png" alt="img2" style="width:100%;height: 200px;">
+                <img src="/images/TicketUp.png" alt="img2" style="width:80%;height: 200px;">
               </div>
             
               <div class="item">
-                <img src="/images/HappyHour.png" alt="img3" style="width:100%;height: 200px;">
+                <img src="/images/HappyHour.png" alt="img3" style="width:80%;height: 200px;">
               </div>
             </div>
 
@@ -63,28 +68,30 @@
             </a>
           </div>
     </div>
-    <div align="center">----------- HAPPY HOURS NEAR YOU -----------</div>
+    <br><br><div align="center"><span align="center" style=" color: #C3C3C3;">------ HAPPY HOURS NEAR YOU ------</span></div>
+
     <div ng-repeat="pub in pubs |filter:selectedArea " class="col-xs-12 col-sm-12 col-md-6 col-lg-4" style="padding: 0;">
         <div class="imageBody">
-            <img src="{{pub.Image}}" class="user_image" style="height: 200px; width: 100%;" alt="Pub Image">
+          <p class="btn-info" id="rating">{{pub.Rating}} <span class="glyphicon glyphicon-star" style="font-size: 12px;"></span></p>
+            <img src="{{pub.Image}}" class="user_image" style="height: 35vh; width: 100%;" alt="Pub Image">
 
         <div class="row" align="center">
             <div class="col-sm-12 col-xs-12 table-responsive" id="tableData" align="center">
-                <table class="table">
+                <table class="table" style="margin: 0;">
                 <tr>
                     <td><small style="color: #111;text-align: left;font-size: 18px;">{{pub.Pub_Name}}</small><br>
                         <small style="color: #95a5a6;text-align: left;"> {{pub.Area}}</small>
                     </td>
-                    <td style="text-align: right; font-size: 10px;"><span class="glyphicon glyphicon-earphone"></span>
-                        <strong style="text-align: center; font-size: 10px;">{{pub.Phone_Number}}</strong><br>
-                        <span style="color: #1a53ff;"><i style="font-size:20px" class="fa">&#xf09a;</i>
-                        <i style="font-size:20px; color: #5bc0de;" class="fa">&#xf099;</i></span>
+                    <td style="text-align: right; font-size: 12px; padding-right: 0px; color: #95a5a6;"><span class="glyphicon glyphicon-earphone"></span>
+                        <strong style="text-align: center; font-size: 14px;">{{pub.Phone_Number}}</strong><br>
+                        <!-- <span style="color: #1a53ff;"><i style="font-size:20px" class="fa">&#xf09a;</i>
+                        <i style="font-size:20px; color: #5bc0de;" class="fa">&#xf099;</i></span> -->
                     </td>
                 </tr> 
                 </table>   
-            </div>
-            <div class="col-sm-12 col-xs-12 table-responsive" style="margin-top: 0%; margin-bottom: 0%;" align="center">
-                    <table class="table">
+            </div><hr style="margin: 0; width: 94%;">
+            <div class="col-sm-12 col-xs-12 table-responsive" style="margin-top: 2%; margin-bottom: 2%;" align="center">
+                    <table class="table" style="margin: 0;">
                         <tr align="center" style="padding: 0;" id="tableImg">
                             <td><img src="/images/002-music.svg" style="width: 20px; height: 20px;"></td>
                             <td><span>Music Gerne</span><br><strong>{{pub.Music}}</strong></td>
@@ -94,31 +101,37 @@
                             <td><span>Ladies Night</span><br><strong>{{pub.Ladies_Night}}</strong></td>
                         </tr>
                     </table>
-                </div><br>
-                <div align="center" id="{{pub.Pub_Name}}">
-                    <a  style="width: 80%; color: #5bc0de;" data-toggle="modal" data-target="#claimBusiness" onclick="display(this)">CLAIM BUSINESS</a>
+                </div><hr style="margin: 0; width: 94%;">
+                
+                <div align="center" id="{{pub.Pub_Name}}" style="padding: 1%;">
+                    <a href="" style="width: 80%; color: #5bc0de;" data-toggle="modal" data-target="#claimBusiness" onclick="display(this)"><span><img src="/images/002-add.svg" style="width: 12px;"></span> <small style="font-weight: bold; font-size: 10px;">CLAIM BUSINESS</small style="font-weight: bold;"></a>
                  </div>
       </div>
     </div>
 </div>
-</div>
-<div class="footer navbar-fixed-bottom row" align="center" id="header">
+</div></div>
+<div class="footer navbar-fixed-bottom row" align="center" id="footer" style="background-color: #fff; font-family: 'Comfortaa',sans-serif;">
         <div>
-        <div class="col-sm-2 col-xs-2"></div>
-            <div class="col-sm-4 col-xs-4">
-                <a href="/" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/Happy_hour_selected.svg"  style="height: 30px; padding:0;"><br>
-                <p style="margin-bottom: 0;">Happy Hour</p>
+        <div class="col-sm-3 col-xs-3">
+          <a href="/#!profile" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/Profile_unselected.svg"  style="height: 20px; padding:0;"><br>
+                <p style="margin-bottom: 0; font-size: 12px;">Profile</p>
                 </a>
-                
-                
+        </div>
+            <div class="col-sm-3 col-xs-3">
+                <a href="/" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/Happy_hour_selected.svg"  style="height: 20px; padding:0;"><br>
+                <p style="margin-bottom: 0; font-size: 12px; color: #40A7F5;">Happy Hour</p>
+                </a>
             </div>
-            <div class="col-sm-4 col-xs-4">
-               <a href="/#!pass" style="text-decoration: none; color: #C3C3C3;"><img src="/images/Gift_card_unselected.svg"  style=" height: 30px;padding:0;"><br>
-                    <p style="margin-bottom: 0;">Passes</p>
+            <div class="col-sm-3 col-xs-3">
+               <a href="/#!pass" style="text-decoration: none; color: #C3C3C3;"><img src="/images/Passes(unselected).svg"  style=" height: 20px;padding:0;"><br>
+                    <p style="margin-bottom: 0; font-size: 12px;">Passes</p>
                </a>
-              
             </div>
-            <div class="col-sm-2 col-xs-2"></div>
+            <div class="col-sm-3 col-xs-3">
+              <a href="/#!notification" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/notifications_unselected.svg"  style="height: 20px; padding:0;"><br>
+                <p style="margin-bottom: 0; font-size: 12px;">Notification</p>
+                </a>
+            </div>
         </div>
     </div>
 </div>

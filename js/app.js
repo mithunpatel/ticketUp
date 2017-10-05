@@ -1,147 +1,206 @@
+'use strict';
+var app=angular.module('happy', ['ui.router','angular.filter','ngStorage']);
+/*app.run(['$rootScope', '$location', 'Auth', function ($rootScope, $location, Auth) {
+  var publicStates = ["home","pass"];
+    $rootScope.$on('$locationChangeStart', function (event, newUrl, oldUrl) {
+        if (!Auth.isLoggedIn()) {
+            console.log('DENY');
+            event.preventDefault();
+            $location.path('/signin');
+        }
 
+    });
+}]);*/
+app.run(['$rootScope', '$location', '$state', 'Auth',function($rootScope, $location, $state, Auth) {
+    var publicStates = ["signin","signup"];
+    var secrteState =["profile"];
+    $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+      // console.log(toState);
+    if (toState.authenticate && !Auth.isLoggedIn() ){
+      // User isn’t authenticated
+      $state.go("signin");
+      event.preventDefault(); 
+    };
+    if (Auth.isLoggedIn() && publicStates.includes(toState.name)) {
+       $state.go(toState.name);
+       console.log(toState.name);
+      event.preventDefault(); 
+    }
+  });
+    // $rootScope.$on('$stateChangeStart', 
+    //   function(event, toState, toParams, fromState, fromParams){ 
+    //         // console.log(toState);
+    //         if(publicStates.includes(toState.name) && !Auth.isLoggedIn()){
+    //           console.log(toState.name);
+    //           return;
+    //         }
+    //         if( Auth.isLoggedIn()){
+    //             event.preventDefault();
+    //             $state.go("profile");
+    //             // $location.path('/signin');
+    //             console.log("authenticated");
+                
+    //         }
+    //    /*if(toState.name !== 'login' && 
+    //     event.preventDef!loginService.isAuthenticated()) {
+    //         console.log("not authenticated");ault();
+    //      $state.go('login');
+    //    }else{
+    //     $state.go('main');
+    //     console.log('Changed state to: ' + toState.name);
+    //    }*/
+    //   });
 
- var app=angular.module('happy', ['ui.router','angular.filter','updateMeta']);
-
- 	// 	app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
-
-  //       $routeProvider
-  //       .when("/", {
-  //               templateUrl: "/js/views/home.html",
-  //               controller: "happyhour"
-  //           })
-  //           .when("/pubs/:name", {
-  //               templateUrl: "/js/views/pubdetail.html",
-  //               controller: "RepoDetailController"
-  //           })
-  //           .when("/signin", {
-  //               templateUrl: "/js/views/signin.html",
-  //               controller: "signInController"
-  //           })
-  //           .when("/signup", {
-  //               templateUrl: "/js/views/signup.html",
-  //               controller: "signUpController"
-  //           })
-  //           .when("/pass", {
-  //               templateUrl: "/js/views/pass.html",
-  //               controller: "passController"
-  //           })
-            
-  //           .otherwise("/");
-
-  // //       $locationProvider.html5Mode({
-		// //   enabled: true,
-		// //   requireBase: false
-		// // });
-  //   }])
-
+}]);
 app.config(function($stateProvider, $urlRouterProvider) {
-
     $urlRouterProvider.otherwise('/');
-
+    
     $stateProvider
 
-        // HOME STATES AND NESTED VIEWS ========================================
+        // HOME STATES AND NESTED VIEWS 
         .state('home', {
             url: '/',
             templateUrl: "/js/views/home.html",
-                controller: "happyhour"
-        })
-
-        .state("pubs", {
-          url: '/pubs/:name',
-                templateUrl: "/js/views/pubdetail.html",
-                controller: "RepoDetailController"
+                controller: "happyhourCtrl",
+                authenticate: false
             })
             .state("signin", {
               url: '/signin',
                 templateUrl: "/js/views/signin.html",
-                controller: "signInController"
+                controller: "signInController",
+                authenticate: false
             })
             .state("signup", {
               url: '/signup',
                 templateUrl: "/js/views/signup.html",
-                controller: "signUpController"
+                controller: "signUpController",
+                authenticate: false
             })
             .state("pass", {
               url: '/pass',
                 templateUrl: "/js/views/pass.html",
-                controller: "passController"
+                controller: "passController",
+                authenticate: false
             })
             .state("brewpass", {
-              url: '/brewpass',
+              url: '/brewpass/:id',
                 templateUrl: "/js/views/brewpass.html",
-                controller: "brewPassController"
+                controller: "brewPassController",
+                authenticate: false
+            })
+            .state("privacypolicy", {
+              url: '/privacypolicy',
+                templateUrl: "./staticpages/privacypolicy.html"
+                // controller: "brewPassController"
+            })
+            .state("termscondition", {
+              url: '/termscondition',
+                templateUrl: "./staticpages/termCondition.html"
+                // controller: "brewPassController"
+            })
+            .state("thankyou", {
+              url: '/thankyou',
+                templateUrl: "./staticpages/thankyou.html",
+                // controller: "thankyouController",
+                authenticate: false
+            })
+            .state("logout", {
+              url: '/logout',
+                templateUrl: "./staticpages/logout.html",
+                controller: "logoutController",
+                authenticate: true
+            })
+            .state("profile", {
+              url: '/profile',
+                templateUrl: "./js/views/profile.html",
+                authenticate: true,
+                controller: "profileController"
+            })
+            .state("checkout", {
+              url: '/checkout',
+                templateUrl: "./js/views/checkout.html",
+                authenticate: true,
+                controller: "checkoutController"
+            })
+            .state("notification", {
+              url: '/notification',
+                templateUrl: "./js/views/notification.html"
+                // controller: "brewPassController"
+            })
+            .state("merchant", {
+              url: '/merchant/:id',
+                templateUrl: "/js/views/merchant.html",
+                controller: "merchantCtrl",
+                authenticate: false
             });
-
-
+            
 });
 
-  app.directive('popup', function() {
+ app.directive('passFaq', function() {
+  return {
+    templateUrl: '/js/views/passFaq.html'
+  };
+});
+
+  app.directive('popupForm', function() {
   return {
     templateUrl: '/js/views/popupForm.html'
   };
 });
 
-    app.controller('happyhour', ['$scope', 'SheetFacotry', function($scope, SheetFacotry) {
-        SheetFacotry.getAllRepo(function(response) {
-            $scope.pubs = response.data.happyHour;
-            // console.log($scope.pubs);
-        });
-    }]);
 
-    app.controller('RepoDetailController', ['$scope','$stateParams','SheetFacotry','$location',function($scope,$stateParams,SheetFacotry,$location) {
-       //$scope.y= x;
-       //console.log($scope.y);
-       // debugger;
-       SheetFacotry.getAllRepo(function(response) {
+  app.directive('ourStory', function() {
+  return {
+    templateUrl: '/js/views/ourStory.html'
+  }
+});
 
-            var pubs = response.data.happyHour;
-            console.log($stateParams.name);
-            for(var i=0;i<pubs.length;i++){
-              if(pubs[i].Pub_Name==$stateParams.name){
-                $scope.y = pubs[i];
-                // console.log($scope.y);
-                break;
-              }
-            };
-            $scope.currenturl=$location.absUrl();
+// function logout() {
+//   window.localStorage.removeItem('ngStorage-tktup_user');
+// };
+    
+
+
+    // app.controller('signInController', ['$rootScope','$scope','$location','$localStorage', function($rootScope,$scope,$location,$localStorage) {
+    //     $scope.$storage = $localStorage;
+    //     $scope.signin=function () {
+    //         var form = new FormData();
+    //               form.append("username", $scope.username);
+    //               form.append("password", $scope.userpassword);
+    //               var settings = {
+    //                 "async": true,
+    //                 "crossDomain": true,
+    //                 "url": "https://www.receptio.in/ticketup/userlogin",
+    //                 "method": "POST",
+    //                 "processData": false,
+    //                 "contentType": false,
+    //                 "mimeType": "multipart/form-data",
+    //                 "data": form
+    //               }
+    //               $.ajax(settings).done(function (res) {  
+    //                 var response =JSON.parse(res);
+    //                 if (response.success==true) {
+    //                   console.log("true");
+    //                   $scope.$storage.tktup_user=response.data;
+    //                   $location.path("/brewpass");
+
+    //                 } else {
+    //                   alert("Username or Password is incorrect");
+    //                   $location.path("/signin");
+    //                 }
+    //               });
+    //               }
+    //               if ($scope.$storage.tktup_user==undefined) {
+    //                 $location.path("/signin");
+    //       } else {
+    //         $location.path("/brewpass");
             
-             // $('head').append(' <meta property="og:url" content="" /><meta property="og:type" content="website" /><meta property="og:title" content="Your Website Title" /><meta property="og:description"   content="Your description" /><meta property="og:image" content="'$scope.y.Image'" />');
-        });
-       // console.log($routeParams);
-    }]);
+    //       }    
+    // }]);
 
-    app.controller('signInController', ['$scope', function($scope) {
-        $scope.signin=function () {
-          console.log($scope.username);
-          console.log($scope.userpassword);
-          $scope.username='';
-          $scope.userpassword='';
-        }
-
-    }]);
-
-    app.controller('signUpController', ['$scope', function($scope) {
-        $scope.signup=function () {
-          console.log($scope.username);
-          if ($scope.userpassword==$scope.cnfUserpassword) { 
-                console.log($scope.userpassword);
-                console.log($scope.userEmail);
-                console.log($scope.check);
-            }
-          
-          
-          $scope.username='';
-          $scope.userEmail='';
-        }
-    }]);
-
-    app.controller('passController', ['$scope', function($scope) {
-        
-    }]);
-    app.controller('brewPassController', ['$scope', function($scope) {
-        
-    }]);
+    
+    
+    
 
     // app.controller('rootCtrl', ['$scope', function($scope) {
     //     $scope.happyUrl = '/images/Happy_hour_selected.svg';
@@ -193,3 +252,32 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 //     });
 // });
+
+
+// var config = {
+//     apiKey: "AIzaSyC7KQ-8sMaSrV9ZB_b3JeUtS-w4r6Nt0e4",
+//     authDomain: "ticketup-abf91.firebaseapp.com",
+//     databaseURL: "https://ticketup-abf91.firebaseio.com",
+//     projectId: "ticketup-abf91",
+//     storageBucket: "ticketup-abf91.appspot.com",
+//     messagingSenderId: "703017651375"
+//   };
+
+// firebase.initializeApp(config);
+
+// if('serviceWorker' in navigator) {
+//   navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(function() {
+//       return navigator.serviceWorker.ready;
+//     }).then(function(registration) {
+//       registration.pushManager.subscribe({userVisibleOnly: true}).then(function(sub) {
+//         var endpointSections = sub.endpoint.split('/');
+//         var subscriptionId = endpointSections[endpointSections.length - 1];
+//         var newKey = firebase.database().ref().child('token').push().key;
+//         firebase.database().ref('token/' + newKey).set({subscriptionId: subscriptionId});
+//         console.log('endpoint:', subscriptionId);
+//       });
+//     });
+//   navigator.serviceWorker.ready.then(function(registration) {
+//      console.log('Service Worker Ready');
+//   });
+// }
