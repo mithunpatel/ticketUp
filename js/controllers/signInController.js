@@ -43,7 +43,7 @@ app.controller('signInController', [ '$scope','$rootScope','$location', 'Auth','
       });
   };
   $scope.signin = function () {
-    console.log('clicked....')
+    
     // Ask to the server, do your job and THEN set the user
     var form = new FormData();
     form.append("username", $scope.username);
@@ -61,7 +61,7 @@ app.controller('signInController', [ '$scope','$rootScope','$location', 'Auth','
     }
 
 $.post(settings).done(function (res) {
-  // console.log(res);
+  console.log(res);
   var response=JSON.parse(res);
   
        if (response.success==true) {

@@ -14,8 +14,8 @@
               <a href="" data-toggle="modal" data-target="#ourstoryModal">OUR STORY</a><hr>
               <a data-toggle="modal" data-target="#addBusiness">ADD BUSINESS</a><hr>
               <!-- <a href="#">BLOGS</a><hr> -->
-              <a href="#!/termscondition">TERMS & CONDITION</a><hr>
-              <a href="#!/privacypolicy">PRIVACY POLICY</a><hr>
+              <a href="/termscondition">TERMS & CONDITION</a><hr>
+              <a href="/privacypolicy">PRIVACY POLICY</a><hr>
               <div style="margin-top: 45vh; color: #95a5a6;" class="footer fixed-bottom"><a href="#" style="color: #95a5a6;">Powered By <img src="/images/logo.png" style="height: 15px; width: 15px;"> Receptio</a></div>
         </div>
             <div class="container mainview">
@@ -32,34 +32,45 @@
     
 <div class="container mainview">
     
-        <div class="row" align="center" style="margin-bottom: 15%; font-size: 12px;">
-            <div ng-repeat="pass in passes">
-            <a href="/#!brewpass/{{pass.id}}">
-            
-            <div class="col-xs-12 col-sm-12 col-md-6" style="height: 45vh;  padding: 0;margin-bottom: 5px;">
+        <div class="row" align="center" style="margin-bottom: 18%; font-size: 12px;">
+            <div ng-repeat="pass in passes | orderBy : 'coming_soon'">
+            <div>
+            <a ng-click="brewpass(pass)" style="cursor: pointer;">
+            <div class="col-xs-12 col-sm-12 col-md-6" style="height: 48vh;  padding: 0;margin-bottom: 5px;">
                 <div style="margin: 0px 2px 0px 0px;">
                 <img src="{{pass.image}}" style="height: 35vh; width: 100%;">
-                <div class="row" style="padding-top: 5px; font-size: 10px; background-color: #fff;">
+                <div class="row" style="padding: 10px 0px 10px 0px; font-size: 12px; background-color: #fff;">
                     <div class="col-sm-4 col-xs-4" style="color: #C3C3C3; padding: 0;">SAVE UPTO  <span style="color: #111;"><i class="fa">&#xf156;</i>{{pass.save_value}}</span></div>
                     <div class="col-sm-4 col-xs-4" style="color: #C3C3C3; padding: 0;">VENUE <span ng-if="pass.access" style="color: #111;"> MULTIPLE</span>
                     </div>
-                    <div class="col-sm-4 col-xs-4" style="color: #0099ff; padding: 0;">BUY NOW <span class="glyphicon">&#xe080;</span>
+                    <div class="col-sm-4 col-xs-4" style="color: #0099ff; font-size: 14px; padding: 0;">BUY NOW<span class="glyphicon">&#xe080;</span>
                     </div>
                 </div>
-                <div class="row" style="padding-top: 5px; background-color: #fff;">
+                <div class="row" style="padding-top: 5px; background-color: #fff;" align="left">
                 <!-- <p style="margin: 0;">partners</p> -->
-                    <table>
+                    <hr style="margin: 0px 0px 0px 0px;">
+                    <div class="col-xs-3" align="center">
+                        <p style="color: #C3C3C3; padding: 5px;">BRANDS: </p>
+                    </div>
+                    <div class="col-xs-7">
+                    <table style="padding-bottom: 5px;">
                         <tr>
-                            <td ng-repeat="brand in pass.brands"><img src="{{brand.img}}" style="width: 40px;"></td>
+                            <td ng-repeat="brand in pass.brands"><img src="{{brand.img}}" style="width: 40px; height: 30px; padding-top: 5px;"></td>
                         </tr>
                     </table>
-                        
+                    </div> 
+                    <div class="col-xs-2" style="padding: 0;">
+                        <div class="fb-share-button" data-href="https://ticketup.in" data-layout="button" data-size="small" data-mobile-iframe="true">
+                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fticketup.in%2F&amp;src=sdkpreparse"><img src="/images/facebook-share.png" style="width: 50px; padding-top: 8px;"></a>
+                        </div>
+
+                    </div>
                     </div>
                     <!-- <div class="col-sm-4 col-xs-4" style="color: #C3C3C3; padding: 0;"></div>
                     <div class="col-sm-4 col-xs-4" style="color: #0099ff; padding: 0;"></div> -->
                 </div>
             </div>
-            </a>
+            </a></div>
             </div>
             <br><br>
             
@@ -71,22 +82,22 @@
 <div class="footer navbar-fixed-bottom row" align="center" id="footer" style="background-color: #fff;font-family: 'Comfortaa',sans-serif;">
         <div>
         <div class="col-sm-3 col-xs-3">
-          <a href="/#!profile" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/Profile_unselected.svg"  style="height: 20px; padding:0;"><br>
+          <a href="/profile" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/profile_unselected.svg"  style="height: 20px; padding:0;"><br>
                 <p style="margin-bottom: 0; font-size: 12px;">Profile</p>
                 </a>
         </div>
             <div class="col-sm-3 col-xs-3">
-                <a href="/" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/Happy_hour_unselected.svg"  style="height: 20px; padding:0;"><br>
+                <a href="/" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/happy_hour_unselected.svg"  style="height: 20px; padding:0;"><br>
                 <p style="margin-bottom: 0; font-size: 12px;">Happy Hour</p>
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-               <a href="/#!pass" style="text-decoration: none; color: #C3C3C3;"><img src="/images/Passes(selected).svg"  style=" height: 20px;padding:0;"><br>
+               <a href="/pass" style="text-decoration: none; color: #C3C3C3;"><img src="/images/Passes(selected).svg"  style=" height: 20px;padding:0;"><br>
                     <p style="margin-bottom: 0; font-size: 12px; color: #40A7F5;">Passes</p>
                </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-              <a href="/#!notification" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/notifications_unselected.svg"  style="height: 20px; padding:0;"><br>
+              <a href="/notification" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/notifications_unselected.svg"  style="height: 20px; padding:0;"><br>
                 <p style="margin-bottom: 0; font-size: 12px;">Notification</p>
                 </a>
             </div>

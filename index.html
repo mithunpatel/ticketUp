@@ -22,12 +22,15 @@
 <head>
 	<title>TicketUp | Happy Hours</title>
 	
-	  <meta property="og:url"           content="http://ticketup.in/index.html" />
+	  <meta property="og:url"           content="http://ticketup.in/" />
 	  <meta property="og:type"          content="website" />
 	  <meta property="og:title"         content="TicketUp | Happy Hours" />
 	  <meta property="og:description"   content="Happy Hours around You" />
-	  <meta property="og:image"         content="http://ticketup.in/images/HappyHour.png" />
-
+	  <meta property="og:image"         content="/images/HappyHour.png" />
+    <meta property="og:image:width" content="200"/>
+    <meta property="og:image:height" content="200"/>
+    <meta name="keywords"
+          content="ticketup, receptio, loyalty program, plug n play, solution, hospitality, rewards, brands, restaurants, customer service, feedback system, pub, pubs, in Bengaluru, happy Hours, Pass, Beer, Vodka, Brew, Wine">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -56,10 +59,19 @@
     })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
 </script> -->
 
-
+<base href="/">
 </head>
 
 <body>
+
+<!-- <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10&appId=1076702162461159";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script> -->
   <!-- <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script> -->
 
 <!-- <div id="fb-root"></div>
@@ -124,33 +136,33 @@ r.src=l.src=("https:"==a.location.protocol?"https://":"http://")+b;s.parentNode.
 
   
 
-	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
-	<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-  <script type="text/javascript" src="bower_components/ngstorage/ngStorage.min.js"></script>
+	<script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script type="text/javascript" src="/bower_components/ngstorage/ngStorage.min.js"></script>
   <!-- <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.min.js"></script> -->
     <!-- <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script> -->
-	<script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
+	<script src="/bower_components/angular-filter/dist/angular-filter.min.js"></script>
 	<!-- <script type="text/javascript" src="js/update-meta.js"></script>
   <script src="bower_components/angularjs-social-login/angularjs-social-login.js"></script> -->
 
 
 
-	<script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" src="js/indexScript.js"></script>
-  <script type="text/javascript" src="js/services/sheetFacotry.js"></script>
-  <script type="text/javascript" src="js/services/authentication.js"></script>
-  <script type="text/javascript" src="js/services/passesSevice.js"></script>
-  <script type="text/javascript" src="js/services/paymentService.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+  <script type="text/javascript" src="/js/indexScript.js"></script>
+  <script type="text/javascript" src="/js/services/sheetFacotry.js"></script>
+  <script type="text/javascript" src="/js/services/authentication.js"></script>
+  <script type="text/javascript" src="/js/services/passesSevice.js"></script>
+  <script type="text/javascript" src="/js/services/paymentService.js"></script>
 	<!-- <script type="text/javascript" src="js/factory.js"></script> -->
-  <script type="text/javascript" src="js/controllers/happyhourCtrl.js"></script>
-  <script type="text/javascript" src="js/controllers/brewPassController.js"></script>
-  <script type="text/javascript" src="js/controllers/signUpController.js"></script>
-  <script type="text/javascript" src="js/controllers/signInController.js"></script>
-  <script type="text/javascript" src="js/controllers/passController.js"></script>
-  <script type="text/javascript" src="js/controllers/profileController.js"></script>
-  <script type="text/javascript" src="js/controllers/thankyouController.js"></script>
-  <script type="text/javascript" src="js/controllers/checkoutController.js"></script>
-  <script type="text/javascript" src="js/controllers/merchantController.js"></script>
-	<script type="text/javascript" src="js/form.js"></script>
+  <script type="text/javascript" src="/js/controllers/happyhourCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/brewPassController.js"></script>
+  <script type="text/javascript" src="/js/controllers/signUpController.js"></script>
+  <script type="text/javascript" src="/js/controllers/signInController.js"></script>
+  <script type="text/javascript" src="/js/controllers/passController.js"></script>
+  <script type="text/javascript" src="/js/controllers/profileController.js"></script>
+  <script type="text/javascript" src="/js/controllers/thankyouController.js"></script>
+  <script type="text/javascript" src="/js/controllers/checkoutController.js"></script>
+  <script type="text/javascript" src="/js/controllers/merchantController.js"></script>
+	<script type="text/javascript" src="/js/form.js"></script>
 </body>
 </html>

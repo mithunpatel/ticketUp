@@ -43,7 +43,23 @@ app.controller('brewPassController', ['$scope','$location','passService','$local
                           $scope.brewPass = $scope.passes[i];
                           $scope.brewPassPkg = $scope.passes[i].packages;
                       // console.log($scope.brewPass)
-                        
+                        // console.log($scope.brewPass)
+                       switch ($scope.brewPass.header) {
+                              case 'The Craft Brew Pass':
+                                  $scope.offerImg = 'Craft Brew.svg';
+                                  break;
+                              case 'Draught Pitcher Pass':
+                                  $scope.offerImg = 'Draught Pitcher.svg';
+                                  break;
+                              case 'Shooting Stars Pass':
+                                  $scope.offerImg = 'Shooting Stars.svg';
+                                  break;
+                              case 'Sultry Cocktail Pass':
+                                  $scope.offerImg = 'Scotch.svg';
+                                  break;
+                              default:
+                                    $scope.offerImg = '';
+                          }
                     }
             };
             $scope.ticket = $scope.brewPassPkg[0];
@@ -70,8 +86,8 @@ app.controller('brewPassController', ['$scope','$location','passService','$local
                             }
                             
                           }
-                        };
-            
+                        }
+            $scope.terms = $scope.brewPass.terms.split(',');
         });
 
 

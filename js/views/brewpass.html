@@ -8,8 +8,8 @@
              <a href="" data-toggle="modal" data-target="#ourstoryModal">OUR STORY</a><hr>
               <a data-toggle="modal" data-target="#addBusiness">CLAIM BUSINESS</a><hr>
               <!-- <a href="#">BLOGS</a><hr> -->
-              <a href="#!/termscondition">TERMS & CONDITION</a><hr>
-              <a href="#!/privacypolicy">PRIVACY POLICY</a><hr>
+              <a href="/termscondition">TERMS & CONDITION</a><hr>
+              <a href="/privacypolicy">PRIVACY POLICY</a><hr>
               <div style="margin-top: 45vh; color: #95a5a6;" class="footer fixed-bottom"><a href="#" style="color: #95a5a6;">Powered By <img src="/images/logo.png" style="height: 15px; width: 15px;"> Receptio</a></div>
         </div>
             <div class="container mainview">
@@ -28,10 +28,10 @@
     <div class="container mainview" style=" margin-bottom: 20%;">
         <div class="row" align="center">
             <div class="col-sm-12" style="padding: 0;">
-                <img src="{{brewPass.image}}" style="height: 50vh; width: 100%; border-radius: 15px;"><br><br>
+                <img src="{{brewPass.image}}" style="width: 100%; border-radius: 15px;"" id="passImage"><br><br>
                 <div class="row" style="font-size: 16px;">
                     <div class="col-sm-4 col-xs-4" align="center" ng-repeat="pkg in brewPassPkg">
-                        <label class="radio-inline"><input type="radio" name="opt" ng-click="radioclick(pkg.id)" /><span style="color: #C3C3C3;"><i class="fa">&#xf156;</i>{{pkg.price}}</span>
+                        <label class="radio-inline"><input type="radio" name="opt" ng-click="radioclick(pkg.id)" ng-checked="$index == 0"/><span style="color: #C3C3C3;"><i class="fa">&#xf156;</i>{{pkg.price}} <span style="font-size: 12px; color: #5bc0de;"> {{pkg.type | uppercase}}</span></span>
                     </div>
                     <!-- <div class="col-sm-4 col-xs-4" align="center">
                         <label class="radio-inline"><input type="radio" name="opt" ng-click="radioclick('2')"><span style="color: #C3C3C3;"><i class="fa">&#xf156;</i>{{ticket.price}}</span>
@@ -40,58 +40,69 @@
                         <label class="radio-inline"><input type="radio" name="opt" ng-click="radioclick('3')"><span style="color: #C3C3C3;"><i class="fa">&#xf156;</i>{{ticket.price}}</span>
                     </div> -->
                 </div><hr style="margin: 5px 0px 5px 0px;">
-                <div class="row">
+                <!-- <div class="col-sm-12" align="center" style="padding: 0;"> -->
+            <div class="row">
+                <div class="col-xs-4 col-sm-4" style="padding: 0;">
+                    <div style="border-radius: 10px; box-shadow: 0px 2px 0px 2px #e2e5e6; margin: 0 5px 0 5px; width: 80%;" align="center">
+                    <span style="font-size: 10px;color: #C3C3C3;">PASSES</span><br>
+                        <p><span style="font-size: 30px; color: #5bc0de;">{{ticket.qty}}</span></p>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4" style="padding: 0;">
+                    <div style="border-radius: 10px; box-shadow: 0px 2px 0px 2px #e2e5e6; margin: 0 5px 0 5px; width: 80%;" align="center">
+                    <span style="font-size: 10px;color: #C3C3C3;">YOU GET</span>
+                        <p style="font-size: 30px;"><span style="font-size: 20px; color: #5bc0de;">{{ticket.units}}x</span><img src="/images/{{offerImg}}" style="height: 30px;"></p>
+                    </div>
+                </div>
+                <div class="col-xs-4 col-sm-4" style="padding: 0;">
+                    <div style="border-radius: 10px; box-shadow: 0px 2px 0px 2px #e2e5e6; margin: 0 5px 0 5px; width: 80%;" align="center">
+                    <span style="font-size: 10px;color: #C3C3C3;">VALIDITY</span>
+                        <p style="font-size: 30px; color: #5bc0de;">{{brewPass.validity}}<span style="font-size: 10px;">MONTHS</span></p>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+                <!-- <div class="row">
                     <div class="col-sm-6 col-xs-6" align="left">
                         <span style="color: #C3C3C3;">VALIDITY</span>
                     </div>
                     <div class="col-sm-6 col-xs-6" align="right">
                         <span style="color: #C3C3C3;">{{brewPass.validity}} MONTHS</span>
                     </div>
-                </div><hr style="margin: 5px 0px 5px 0px;"><br>
-                <p>{{brewPass.terms}}</p>
+                </div> -->
+                
+                <p align="left">{{brewPass.description}}</p>
             </div>
-            <!-- <div class="col-sm-12" align="center" style="padding: 0;"> -->
-            <div class="row">
-                <div class="col-xs-4 col-sm-4" style="padding: 0;">
-                    <div style="border-radius: 10px; box-shadow: 0px 2px 0px 2px #e2e5e6; margin: 0 5px 0 5px; width: 80%;" align="center">
-                    <span style="font-size: 10px;">AVAILABLE</span><br>
-                        <p><span style="font-size: 30px; color: #5bc0de;">{{ticket.qty}}</span><span style="font-size: 10px;">/{{ticket.units}}</span></p>
-                    </div>
-                </div>
-                <div class="col-xs-4 col-sm-4" style="padding: 0;">
-                    <div style="border-radius: 10px; box-shadow: 0px 2px 0px 2px #e2e5e6; margin: 0 5px 0 5px; width: 80%;" align="center">
-                    <span style="font-size: 10px;">OFFERS</span>
-                        <p style="font-size: 30px;"><img src="/images/001-pint.svg" style="height: 30px;"><span style="font-size: 10px;">{{ticket.type}}</span></p>
-                    </div>
-                </div>
-                <div class="col-xs-4 col-sm-4" style="padding: 0;">
-                    <div style="border-radius: 10px; box-shadow: 0px 2px 0px 2px #e2e5e6; margin: 0 5px 0 5px; width: 80%;" align="center">
-                    <span style="font-size: 10px;">SAVE UPTO</span>
-                        <p style="font-size: 30px; color: #5bc0de;">{{brewPass.save_value}}</p>
-                    </div>
-                </div>
-            </div>
-            <!-- </div> -->
+            
+        </div>
+        <div>
+            <a class="btn btn-info btn-lg btn-block" ng-click="checkout(ticket)">Buy {{brewPass.header}}</a>
         </div><br>
-        <div align="center"><span style="color: #C3C3C3;">--- PARTNERS ---</span></div><br>
+        <!-- <hr style="margin: 5px 0px 5px 0px;"> -->
+        <div align="center"><span style="color: #C6C6C6;">-- PICK UP VENUES --</span></div>
         <div class="row">
             <div class="col-xs-12 col-sm-6" ng-repeat="partner in brewPass.brands" style="padding: 0;">
                 <div style="border-radius: 10px; box-shadow: -1px 1px 0px 2px #e2e5e6; width: 100%;" align="center"  class="row">
-                        <div class="col-xs-3" align="right">
+                        <div class="col-xs-3" align="right" style="padding: 2%;">
                             <img src="{{partner.img}}" style="width: 100%; height: 100%;">
                         </div>
-                        <div class="col-xs-9" align="left">
-                            <strong style="color: #C6C6C6;">{{partner.businessname}}</strong><br>
-                            <small style="color: #C3C3C3;">{{partner.email}}<br>
-                            {{partner.contact}}<br>
-                            {{partner.opentime}}-{{partner.closetime}}</smalll>
+                        <div class="col-xs-8" align="left" style="padding: 1%;">
+                            <p><strong style="color: #C6C6C6;">{{partner.businessname}}</strong></p>
+                            <p style="color: #C3C3C3; font-size: 10px;">{{partner.opentime}}-{{partner.closetime}}</p>
+                        </div>
+                        <div class="col-xs-1" style="color: #0099ff; padding: 0; padding-top: 10%;">
+                            <span class="glyphicon">&#xe080;</span>
                         </div>
                         
                     </div><br>
             </div>
         </div>
         <div>
-            <a class="btn btn-info btn-block" ng-click="checkout(ticket)">Buy {{brewPass.header}}</a>
+        <br>
+        <span style="font-size: 10px; cursor: pointer;"><p align="center"><strong ng-click="showTerms = !showTerms"><u>T&C Apply : Click To Read </u><span class="glyphicon">&#xe114;</span></strong></p>
+        <ul style="font-size: 10px; color: #C3C3C3;"  ng-show="showTerms" >
+        <li ng-repeat="term in terms">{{term}}</li>
+        </ul></span>
         </div>
     </div>
 <div pass-faq></div>
@@ -99,22 +110,22 @@
     <div class="footer navbar-fixed-bottom row" align="center" id="footer" style="background-color: #fff;font-family: 'Comfortaa',sans-serif;">
         <div>
         <div class="col-sm-3 col-xs-3">
-          <a href="/#!profile" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/Profile_unselected.svg"  style="height: 20px; padding:0;"><br>
+          <a href="/profile" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/profile_unselected.svg"  style="height: 20px; padding:0;"><br>
                 <p style="margin-bottom: 0; font-size: 12px;">Profile</p>
                 </a>
         </div>
             <div class="col-sm-3 col-xs-3">
-                <a href="/" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/Happy_hour_unselected.svg"  style="height: 20px; padding:0;"><br>
+                <a href="/" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/happy_hour_unselected.svg"  style="height: 20px; padding:0;"><br>
                 <p style="margin-bottom: 0; font-size: 12px;">Happy Hour</p>
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-               <a href="/#!pass" style="text-decoration: none; color: #C3C3C3;"><img src="/images/Passes(selected).svg"  style=" height: 20px;padding:0;"><br>
+               <a href="/pass" style="text-decoration: none; color: #C3C3C3;"><img src="/images/Passes(selected).svg"  style=" height: 20px;padding:0;"><br>
                     <p style="margin-bottom: 0; font-size: 12px; color: #40A7F5;">Passes</p>
                </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-              <a href="/#!notification" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/notifications_unselected.svg"  style="height: 20px; padding:0;"><br>
+              <a href="/notification" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/notifications_unselected.svg"  style="height: 20px; padding:0;"><br>
                 <p style="margin-bottom: 0; font-size: 12px;">Notification</p>
                 </a>
             </div>

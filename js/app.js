@@ -18,43 +18,23 @@ app.run(['$rootScope', '$location', '$state', 'Auth',function($rootScope, $locat
       // console.log(toState);
     if (toState.authenticate && !Auth.isLoggedIn() ){
       // User isn’t authenticated
+      console.log("not isLoggedIn");
       $state.go("signin");
       event.preventDefault(); 
     };
     if (Auth.isLoggedIn() && publicStates.includes(toState.name)) {
        $state.go(toState.name);
-       console.log(toState.name);
+       console.log("isLoggedIn");
       event.preventDefault(); 
     }
   });
-    // $rootScope.$on('$stateChangeStart', 
-    //   function(event, toState, toParams, fromState, fromParams){ 
-    //         // console.log(toState);
-    //         if(publicStates.includes(toState.name) && !Auth.isLoggedIn()){
-    //           console.log(toState.name);
-    //           return;
-    //         }
-    //         if( Auth.isLoggedIn()){
-    //             event.preventDefault();
-    //             $state.go("profile");
-    //             // $location.path('/signin');
-    //             console.log("authenticated");
-                
-    //         }
-    //    /*if(toState.name !== 'login' && 
-    //     event.preventDef!loginService.isAuthenticated()) {
-    //         console.log("not authenticated");ault();
-    //      $state.go('login');
-    //    }else{
-    //     $state.go('main');
-    //     console.log('Changed state to: ' + toState.name);
-    //    }*/
-    //   });
-
 }]);
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider,$locationProvider) {
     $urlRouterProvider.otherwise('/');
-    
+    $locationProvider.html5Mode({
+  enabled: true,
+  requireBase: false
+});
     $stateProvider
 
         // HOME STATES AND NESTED VIEWS 
@@ -155,80 +135,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
   }
 });
 
-// function logout() {
-//   window.localStorage.removeItem('ngStorage-tktup_user');
-// };
-    
-
-
-    // app.controller('signInController', ['$rootScope','$scope','$location','$localStorage', function($rootScope,$scope,$location,$localStorage) {
-    //     $scope.$storage = $localStorage;
-    //     $scope.signin=function () {
-    //         var form = new FormData();
-    //               form.append("username", $scope.username);
-    //               form.append("password", $scope.userpassword);
-    //               var settings = {
-    //                 "async": true,
-    //                 "crossDomain": true,
-    //                 "url": "https://www.receptio.in/ticketup/userlogin",
-    //                 "method": "POST",
-    //                 "processData": false,
-    //                 "contentType": false,
-    //                 "mimeType": "multipart/form-data",
-    //                 "data": form
-    //               }
-    //               $.ajax(settings).done(function (res) {  
-    //                 var response =JSON.parse(res);
-    //                 if (response.success==true) {
-    //                   console.log("true");
-    //                   $scope.$storage.tktup_user=response.data;
-    //                   $location.path("/brewpass");
-
-    //                 } else {
-    //                   alert("Username or Password is incorrect");
-    //                   $location.path("/signin");
-    //                 }
-    //               });
-    //               }
-    //               if ($scope.$storage.tktup_user==undefined) {
-    //                 $location.path("/signin");
-    //       } else {
-    //         $location.path("/brewpass");
-            
-    //       }    
-    // }]);
-
-    
-    
-    
-
-    // app.controller('rootCtrl', ['$scope', function($scope) {
-    //     $scope.happyUrl = '/images/Happy_hour_selected.svg';
-    //     $scope.passUrl = '/images/Gift_card_selected.svg';
-    //     $scope.happyClick = function () {
-    //       $scope.happyUrl = '/images/Happy_hour_selected.svg';
-    //       $scope.passUrl = '/images/Gift_card_selected.svg';
-    //     };
-    //     $scope.passClick = function () {
-    //         $scope.happyUrl = '/images/Happy_hour_unselected.svg';
-    //         $scope.passUrl = '/images/Gift_card_unselected.svg';
-    //     }
-    // }])
-
-   
-   // app.controller('happyhour',function($scope, $http) {
-   //     $http.get('https://script.google.com/macros/s/AKfycbygukdW3tt8sCPcFDlkMnMuNu9bH5fpt7bKV50p2bM/exec?id=1_GTIZgDTLY5_MXwSiszk0iAnhkS4ektSvRQKszHW8YI&sheet=happyHour')
-   //     .then(function(res){
-   //        $scope.pubs = res.data.happyHour; 
-   //        // console.log($scope.pubs);
-   //      });
-        
-   // })
 // const publicKey='BCETN9G4DMt-s2MMCwuqMvIyH_RP6THHMN2S8AHYmDSIOFPkdIA5z4RcCDkJEGgsENZIv2wvvgFDRO0jta7hldQ';
 
-//    navigator.serviceWorker && navigator.serviceWorker.register('./sw.js').then(function(registration) {
-//   // console.log('Excellent, registered with scope: ', registration.scope);
-// });
+   navigator.serviceWorker && navigator.serviceWorker.register('/sw.js').then(function(registration) {
+  console.log('Excellent, registered with scope: ', registration.scope);
+});
 
 // navigator.serviceWorker && navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {  
 //   serviceWorkerRegistration.pushManager.getSubscription()  

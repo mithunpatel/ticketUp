@@ -9,8 +9,8 @@
               <a href="" data-toggle="modal" data-target="#ourstoryModal">OUR STORY</a><hr>
               <a href="" data-toggle="modal" data-target="#addBusiness">ADD BUSINESS</a><hr>
               <!-- <a href="#">BLOGS</a><hr> -->
-              <a href="#!/termscondition">TERMS & CONDITION</a><hr>
-              <a href="#!/privacypolicy">PRIVACY POLICY</a><hr>
+              <a href="/termscondition">TERMS & CONDITION</a><hr>
+              <a href="/privacypolicy">PRIVACY POLICY</a><hr>
               <div style="margin-top: 50vh; color: #95a5a6;" class="navbar-bottom"><a href="#" style="color: #95a5a6;">Powered By <img src="/images/logo.png" style="height: 15px; width: 15px;"> Receptio</a></div>
         </div>
         <div class="container mainview">
@@ -24,7 +24,7 @@
                 </div>
         </div>
 </div></div>
-<br><br>
+<br>
 	
 <div class="container mainview">
         <div class="row" align="center" style="margin-top: 4%; margin-bottom: 8%; font-size: 12px;">
@@ -51,20 +51,24 @@
                     </table>
                 </div>
                 <div>
-                    <a class="input-sm btn-danger" href="/#!logout">Log out</a>
+                    <a class="input-sm btn-danger" href="/logout">Log out</a>
                 </div>
             </div>
             <br>
-            <div class="col-sm-12" style="padding: 0;">
+            <div class="col-sm-12" style="padding: 0; background-color: #fff;">
                 <p>----MY PASSES----</p>
+                <div ng-if="userDetail">
+                  <img src="/images/Passes(unselected).svg" style="width: 80px;">
+                  <p style="color: #C3C3C3; font-size: 12px;">No Passes Available</p>
+              </div>
                 <div class="row">
                     <div class="col-sm-12" ng-repeat="user in userDetail" style="padding: 0; background-color: #fff;">
-                        <div><img src="{{user.image}}" style="width: 100%; height: 40vh;"></div>
+                        <div><img src="{{user.image}}" style="width: 100%; height: 30vh;"></div>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table" id="profileTable">
                                 <tr>
                                     <td>Category</td>
-                                    <td align="right">{{user.description}}</td>
+                                    <td align="right">{{user.header}}</td>
                                 </tr>
                                 <tr>
                                     <td>Units Left</td>
@@ -91,25 +95,33 @@
 	<div class="footer navbar-fixed-bottom row" align="center" id="footer" style="background-color: #fff;font-family: 'Comfortaa',sans-serif;">
         <div>
         <div class="col-sm-3 col-xs-3">
-          <a href="/#!profile" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/Profile_selected.svg"  style="height: 20px; padding:0;"><br>
+          <a href="/profile" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/profile_selected.svg"  style="height: 20px; padding:0;"><br>
                 <p style="margin-bottom: 0; font-size: 12px; color: #40A7F5;">Profile</p>
                 </a>
         </div>
             <div class="col-sm-3 col-xs-3">
-                <a href="/" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/Happy_hour_unselected.svg"  style="height: 20px; padding:0;"><br>
+                <a href="/" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/happy_hour_unselected.svg"  style="height: 20px; padding:0;"><br>
                 <p style="margin-bottom: 0; font-size: 12px;">Happy Hour</p>
                 </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-               <a href="/#!pass" style="text-decoration: none; color: #C3C3C3;"><img src="/images/Passes(unselected).svg"  style=" height: 20px;padding:0;"><br>
+               <a href="/pass" style="text-decoration: none; color: #C3C3C3;"><img src="/images/Passes(unselected).svg"  style=" height: 20px;padding:0;"><br>
                     <p style="margin-bottom: 0; font-size: 12px;">Passes</p>
                </a>
             </div>
             <div class="col-sm-3 col-xs-3">
-              <a href="/#!notification" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/notifications_unselected.svg"  style="height: 20px; padding:0;"><br>
+              <a href="/notification" style="text-decoration: none; color: #C3C3C3;"><img src = "/images/notifications_unselected.svg"  style="height: 20px; padding:0;"><br>
                 <p style="margin-bottom: 0; font-size: 12px;">Notification</p>
                 </a>
             </div>
         </div>
     </div>
 </div>
+<style type="text/css">
+    #profileTable td{
+        padding: 0;
+    }
+    #profileTable{
+        width: 98%;
+    }
+</style>

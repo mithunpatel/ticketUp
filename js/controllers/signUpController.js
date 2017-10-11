@@ -29,10 +29,11 @@ app.controller('signUpController', ['$scope','$location','$localStorage', functi
 
                 $.ajax(settings).done(function (res) {
                   var response =JSON.parse(res);
+                  console.log(res);
                     if (response.success==true) {
                       // console.log("true");
                       $location.path("/signin");
-                      alert("Username registered with us, Please login.");
+                      alert("Congratulation..You are registered with us, Please login.");
 
                     } else {
                       $location.path("/signin");

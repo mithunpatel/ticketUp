@@ -1,42 +1,15 @@
-<!-- <div id="boxes">
-  <div id="dialog" class="window" style="height: 50%;  overflow-y: scroll;">
-    <div style="background-image: url(/images/header_bg.jpg); height: 100px;">
-      <a class="close"><img src="/images/cancel.svg" style="width: 30px; padding-right: 5px; padding-top: 10px;"></a>
-    <div>
-      <strong style="color: #fff; font-size: 40px;">Our Story</strong>
-    </div><br><br>
-    <div>
-      <p>“Hey man, I just got a promotion at work!”
-“Oh my god the weather today is terrible”
-“My team just won the match!”
-
-Every one of those sentences have you ending up in a pub. Stop reading this if you don’t agree. Whether you’re happy or sad; healthy or sick; you always find yourself heading towards your local watering hole.
-
-The thing is, there are bound to be several reasons in a month for you to go out and have a good time with your buddies. It happens to all of us and we thought, if it’s such a recurring ordeal, it might as well be planned and it would be great if we could save a buck in the process.
-
-Then we figured, there has to be a way to do this, and it struck us. Our parents always paid their bills at the beginning of the month. The reason is so simple, it’ll make you think “oh man, that’s so simple and effective! This is a great day” - then you obviously end up the pub again. If you spend on all your fixed expenses in the beginning of the month, then you automatically know how rich (or poor) you are for the rest of the month - and like any wise person always said - <strong>“knowledge is power”.</strong> </p>
-    </div>
-    <div align="center">
-    <a href="#!/pass" class="btn btn-info" style="float: none; padding-bottom: 0; color: #fff;padding: 0px 12px;"><span class="close" style="float: none; padding-bottom: 0; color: #fff;padding: 0px 12px;">Give Me Power</span></a>
-    </div>
-    </div>
-  </div>
-  <div id="mask"></div>
-</div> -->
-<!-- <div id="popupfoot"> <a href="#" class="close agree">I agree</a> | <a class="agree"style="color:red;" href="#">I do not agree</a> </div> -->
-
-
-
-
 <div class="modal fade" id="ourstoryModal" role="dialog">
     <div class="modal-dialog">
     
     
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="col-sm-12 col-md-12" style="height: 120px;padding: 0; z-index: 1;" align="center">
-            
-            <div style="background-image: url(/images/header_bg.jpg); height: 120px;">
+      <div class="modal-content" id="modalcontent">
+        <div class="modal-header" id="modalheader">
+          <div class="col-sm-12 col-md-12" style="background-image: url(/images/OurStory.png);height: 120px;padding: 0;" align="center">
+            <div>
+            <!-- <img src="/images/OurStory.png" style="width: 100%; position: relative;">
+            <a class="close" onclick="closePop()"><img src="/images/cancel.svg" style="width: 30px; padding-right: 5px; padding-top: 10px; z-index: 2; position: absolute;">
+              </a> -->
+              <div style=" height: 120px;">
               <a class="close" onclick="closePop()"><img src="/images/cancel.svg" style="width: 30px; padding-right: 5px; padding-top: 10px;"></a>
             <div style="padding-top: 12%;">
             <strong style="color: #fff; font-size: 40px; z-index: 1;">Our Story</strong>
@@ -44,21 +17,24 @@ Then we figured, there has to be a way to do this, and it struck us. Our parents
               </div>
               </div>
             </div>
+            <div>
+            <p style="margin: 0;">
+              
+              </p></div>
+            </div>
         </div>
-        <div class="modal-body" style="overflow: hidden; overflow-y: scroll;">
+        <div class="modal-body" style="overflow: hidden; overflow-y: scroll;" id="modalbody">
           <div class="col-sm-12 col-md-12" style="padding: 0;margin-bottom: 5px; z-index: 1; background-color: #fff;  box-shadow: 0px 2px 0px 2px #e2e5e6;">
-              <div align="center" style="padding: 2px;">
-                <p>“<strong>Hey man,</strong> I just got a promotion at work!”
-“Oh my god the weather today is terrible”
-“My team just won the match!”
+              <div align="left" style="padding: 2%;">
+                <p style="font-size: 16px;">
+                  Everyday, there’s a reason to go to a pub, wouldn’t you agree? Whether you’re happy or sad, you’re always heading towards your local watering hole - well, at least we did.
 
-Every one of those sentences have you ending up in a pub. Stop reading this if you don’t agree. Whether you’re happy or sad; healthy or sick; you always find yourself heading towards your local watering hole.
+It happens to the bestl of us! We thought, if it’s such a recurring ordeal, it might as well be planned
 
-The thing is, there are bound to be several reasons in a month for you to go out and have a good time with your buddies. It happens to all of us and we thought, if it’s such a recurring ordeal, it might as well be planned and it would be great if we could save a buck in the process.
-
-Then we figured, there has to be a way to do this, and it struck us. Our parents always paid their bills at the beginning of the month. The reason is so simple, it’ll make you think “oh man, that’s so simple and effective! This is a great day” - then you obviously end up the pub again. If you spend on all your fixed expenses in the beginning of the month, then you automatically know how rich (or poor) you are for the rest of the month - and like any wise person always said - <strong>“knowledge is power”.</strong> </p>
+We thought - “there has to be a smarter way to drink up, have a great experience, all while saving a buck or two” -. And then it struck is - if you buy booze beforehand, you can then always make a plan (because every good plan starts with a drink). You save a buck and voila! Before you know it, you’re in high spirits with your friends!
+                </p>
                 <div style="margin-top: 5%;">
-                <a class="btn btn-block btn-info" style="width: 80%;" onclick="closePop()">Give Me Power</a>
+                <a class="btn btn-block btn-info" style="width: 100%;" onclick="closePop()">Let's Go!</a>
                 </div>
               </div>
             </div>
@@ -76,30 +52,30 @@ Then we figured, there has to be a way to do this, and it struck us. Our parents
     position: relative;
     padding: 0;
 }
-.modal-header{
+#modalheader{
 padding: 0;
 }
 
 
 @media (max-width: 768px) {
-       .modal {
+       #ourstoryModal {
     top: 10%;
     bottom: 10%;
 }
-.modal-content{
+#modalcontent{
   height: 70vh;
 }
-.modal-body{
+#modalbody{
   height: 65%;
 }
     }
 
     @media (min-width: 992px) {
-      .modal {
+      #ourstoryModal {
     top: 15%;
     bottom: 15%;
 }
-.modal-content{
+#modalcontent{
   height: 60vh;
 }
 /*.modal-body{
