@@ -2,7 +2,7 @@
   "name": "ticketUp",
   "version": "1.0.0",
   "description": "TicketUp is a project for receptio.in under gamespace tech pvt ltd.",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "lite-server"
