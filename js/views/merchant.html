@@ -27,6 +27,10 @@
                   <img src="/images/Passes(unselected).svg" style="width: 80px;">
                   <p style="color: #C3C3C3; font-size: 12px;">No Passes Available</p>
               </div>
+              <div ng-if="userPasses.length == 0">
+                  <img src="/images/Passes(unselected).svg" style="width: 80px;">
+                  <p style="color: red; font-size: 12px;">No Passes Available</p>
+              </div>
               <p style="color: red; font-size: 22px;">{{err.errors.account}}</p>
               <div class="row" ng-if="userPasses">
               <div ng-repeat="pass in userPasses" ng-if="!err.errors.account">
@@ -42,7 +46,7 @@
                     </tr>
                     <tr>
                       <td style="font-size: 10px; padding: 5px 5px 5px 5px;" align="left">VALIDITY</td>
-                      <td style="font-size: 10px; padding: 5px 5px 5px 5px;" align="right">{{pass.expiry}}</td>
+                      <td style="font-size: 10px; padding: 5px 5px 5px 5px;" align="right">{{pass.expiry | date:"dd-MMM-yyyy"}}</td>
                     </tr>
                     <tr>
                       <td style="font-size: 10px; padding: 5px 5px 5px 5px;" align="left">SELECT QTY</td>

@@ -42,7 +42,7 @@ app.controller('checkoutController',['$location', '$scope', '$window','Auth','pa
 
               // angular.element( document.querySelector( '#forgot_warning' ) ).removeClass('ng-hide');
               // document.getElementById("pass").style.display = 'none';
-              // console.log("something wrong");
+              console.log("something wrong in checkout with payid");
               $scope.err = 'Something Went Wrong :( Payment Server Not Responding.';
               $timeout(function () {
             // body...
@@ -56,9 +56,11 @@ app.controller('checkoutController',['$location', '$scope', '$window','Auth','pa
         }
         else{
           // console.log("something went wrong... you clicked refresh or back button.")
+
           $scope.err = 'Something Went Wrong :( You Clicked Refresh or Back Button.';
           $timeout(function () {
             // body...
+            console.log("something wrong in checkout without payid redirect to pass");
             $location.path("pass");
           } ,5000)
         }

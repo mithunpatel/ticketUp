@@ -5,13 +5,21 @@
         <div id="mySidenav" class="sidenav">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <a href="/"><img src="/images/TicketUp.png" style="height: 65px;"></a><hr>
-              <a href="#">NOTES</a><hr>
               <a href="" data-toggle="modal" data-target="#ourstoryModal">OUR STORY</a><hr>
+              <a href="/notes">NOTES</a><hr>
               <a href="" data-toggle="modal" data-target="#addBusiness">ADD BUSINESS</a><hr>
               <!-- <a href="#">BLOGS</a><hr> -->
               <a href="/termscondition">TERMS & CONDITION</a><hr>
               <a href="/privacypolicy">PRIVACY POLICY</a><hr>
-              <div style="margin-top: 50vh; color: #95a5a6;" class="navbar-bottom"><a href="#" style="color: #95a5a6;">Powered By <img src="/images/logo.png" style="height: 15px; width: 15px;"> Receptio</a></div>
+              <div class="col-sm-12">
+                <ul class="footer list-inline">
+                  <h5 style="padding-left: 20px;">Follow Us</h5>
+                    <li><a href="https://www.facebook.com/ticketup.mate/" style="padding-left: 20px;"><i class="fa fa-facebook" style="color: #40A7F5; font-size: 20px;"></i></a></li>
+                    <li><a href="https://twitter.com/_Ticketup_" style="padding-left: 20px;"><i class="fa fa-twitter" style="color: #40A7F5; font-size: 20px;"></i></a></li>
+                    <li><a href="https://www.instagram.com/ticket_up/" style="padding-left: 20px;"><i class="fa fa-instagram" style="color: #40A7F5; font-size: 20px;"></i></a></li>
+                </ul>
+            </div>
+              <!-- <div style="margin-top: 50vh; color: #95a5a6;" class="navbar-bottom"><a href="#" style="color: #95a5a6;">Powered By <img src="/images/logo.png" style="height: 15px; width: 15px;"> Receptio</a></div> -->
         </div>
         <div class="container mainview">
             <div class="col-sm-2 col-xs-2"><span style="cursor:pointer;padding-left: 10px;" onclick="openNav()"><img style="height:20px;" src="/images/002-menu.svg"></span>
@@ -26,7 +34,7 @@
 </div></div>
 <br>
 	
-<div class="container mainview">
+<div class="container mainview" style="background-color: #fff;">
         <div class="row" align="center" style="margin-top: 4%; margin-bottom: 8%; font-size: 12px;">
             <div class="col-sm-12 col-md-12" style="background-color: #fff;  padding: 0;margin-bottom: 5px;padding-top: 5px;">
                 <img src="/images/Avatar.png" style="height: 25%; width: 15%;">
@@ -41,7 +49,7 @@
                             <td><strong style="color: #C6C6C6">{{user_profile.email}}</strong><hr style="margin: 0; margin-top: 5px;"></td>
                         </tr>
                         <tr>
-                            <td><strong style="color: #40A7F5">Phone Number</strong></td>
+                            <td><strong style="color: #40A7F5">Mobile</strong></td>
                             <td><strong style="color: #C6C6C6">{{user_profile.mobile}}</strong><hr style="margin: 0; margin-top: 5px;"></td>
                         </tr>
                         <!-- <tr>
@@ -57,9 +65,10 @@
             <br>
             <div class="col-sm-12" style="padding: 0; background-color: #fff;">
                 <p>----MY PASSES----</p>
-                <div ng-if="userDetail">
+                <div ng-if="userDetail.length ==0">
                   <img src="/images/Passes(unselected).svg" style="width: 80px;">
                   <p style="color: #C3C3C3; font-size: 12px;">No Passes Available</p>
+                  <a class="input-sm btn-info" href="/pass">Browse Passes</a>
               </div>
                 <div class="row">
                     <div class="col-sm-12" ng-repeat="user in userDetail" style="padding: 0; background-color: #fff;">

@@ -1,0 +1,160 @@
+ <div class="container-fluid" style=" background-color: #c3c3c3; padding: 0;">
+    <div class="navbar-fixed-top" id="header">
+        <div class="row"> 
+        <div id="mySidenav" class="sidenav">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+              <a href="/"><img src="/images/TicketUp.png" style="height: 65px;"></a><hr>
+              <a href="" data-toggle="modal" data-target="#ourstoryModal">OUR STORY</a><hr>
+              <a href="/notes">NOTES</a><hr>
+              <a href="" data-toggle="modal" data-target="#addBusiness">ADD BUSINESS</a><hr>
+              <!-- <a href="#">BLOGS</a><hr> -->
+              <a href="/termscondition">TERMS & CONDITION</a><hr>
+              <a href="/privacypolicy">PRIVACY POLICY</a><hr>
+              <div class="col-sm-12">
+                <ul class="footer list-inline">
+                  <h5 style="padding-left: 20px;">Follow Us</h5>
+                    <li><a href="https://www.facebook.com/ticketup.mate/" style="padding-left: 20px;"><i class="fa fa-facebook" style="color: #40A7F5; font-size: 20px;"></i></a></li>
+                    <li><a href="https://twitter.com/_Ticketup_" style="padding-left: 20px;"><i class="fa fa-twitter" style="color: #40A7F5; font-size: 20px;"></i></a></li>
+                    <li><a href="https://www.instagram.com/ticket_up/" style="padding-left: 20px;"><i class="fa fa-instagram" style="color: #40A7F5; font-size: 20px;"></i></a></li>
+                </ul>
+            </div>
+              <!-- <div style="margin-top: 45vh; color: #95a5a6;" class="footer fixed-bottom"><a href="#" style="color: #95a5a6;">Powered By <img src="/images/logo.png" style="height: 15px; width: 15px;"> Receptio</a></div> -->
+        </div>
+            <div class="container mainview">
+            <div class="col-sm-2 col-xs-2"><span style="cursor:pointer;padding-left: 10px; font-size: 15px;" onclick="goBack()"><i class="fa fa-angle-left" style="font-size:25px"></i></span>
+            </div>
+            <div class="col-sm-8 col-xs-8" style="font-family: 'Comfortaa',sans-serif; font-size: 15px; padding-left: 0; padding-top: 5px;" align="center">
+                Checkout
+            </div>
+            
+                <div class="col-sm-2 col-xs-2" align="right" style="padding-right: 0;padding-top: 5px;">
+                    <!-- <a data-toggle="modal" data-target="#passFaq"><span style="cursor:pointer; padding-right: 10px; color: #111;"><img src="/images/001-questions-button.svg" style="width: 20px;"></span></a> -->
+                </div>
+        </div></div>
+</div>
+
+    <div class="container mainview" style=" margin-bottom: 20%; background-color: #e8e6e6; font-size: 12px;" id="checkoutContainer">
+        <div class="row">
+        <div class="col-sm-12 col-md-12 table-responsive" style="padding: 0; margin: 0;">
+            <p style="margin: 5px; padding-left: 20px;">YOUR DETAILS</p>
+            <table class="table" id="userDetail" style="background-color: #fff; margin: 0;">
+                <tr>
+                    <td align="left" style="color: #0099ff; padding-left: 27px;">Name</td>
+                    <td align="left">{{user.fullname}}</td>
+                </tr>
+                <tr>
+                    <td align="left" style="color: #0099ff; padding-left: 27px;">Email</td>
+                    <td align="left">{{user.email}}</td>
+                </tr>
+                <tr>
+                    <td align="left" style="color: #0099ff; padding-left: 27px;">Phone</td>
+                    <td align="left">{{user.mobile}}</td>
+                </tr>
+            </table>
+            
+        </div>
+        <div class="col-sm-12 col-md-12" style="padding: 0;">
+                <!-- <hr style="margin: 5px 0px 5px 0px;"> -->
+                <p style="margin: 5px; padding-left: 20px;">PROMO CODE</p>
+                <div style="background-color: #fff;">
+                <p ng-show="selectedPass.coupon">The Promo Code <strong style="color: #0099ff;">{{promotionCode | uppercase}}</strong> Has Been Successfully Applied</p>
+            <form ng-hide="selectedPass.coupon">
+                    <label for="promotion">
+                        <input type="text" name="promotionCode" placeholder="Enter Promo Code" ng-model="promotionCode" style="border:none; padding: 7px 0px 5px 25px;"> 
+
+                        <input type="submit" value="APPLY" ng-click="promotion()" style="border:none; background-color: #fff; color: #0099ff; padding: 7px 45px 5px 0px;" align="right">
+                  </label>
+                  <span ng-if="err"><p style="color: red;">{{err}}</p></span>
+                </form>
+            </div>
+            </div>
+        <div class="col-sm-12 col-md-12 table-responsive" style="padding: 0; margin: 0;">
+            <p style="margin: 5px;padding-left: 20px;">BILL DETAILS</p>
+            <table class="table" style="background-color: #fff; margin: 0;">
+                <tr>
+                    <td align="left" style="padding-left: 25px;">{{selectedPass.passName}}</td>
+                    <td align="right" style="padding-right: 25px;"><i class="fa">&#xf156;</i>{{selectedPass.price}}</td>
+                </tr>
+                <tr>
+                    <td align="left" style="padding-left: 25px;">Discount</td>
+                    <td align="right" style="color: #77bc80; padding-right: 25px;">(-) <i class="fa">&#xf156;</i>{{selectedPass.discount}}</td>
+                </tr>
+                <tr>
+                    <td align="left" style="padding-left: 25px;font-size: 16px;"><strong>Grand Total</strong></td>
+                    <td align="right" style="font-size: 16px; padding-right: 25px;"><strong><i class="fa">&#xf156;</i>{{selectedPass.total}}</strong></td>
+                </tr>
+            </table>
+            <div style="background-color: #fff;">
+            <p style="color: #0099ff; margin: 0; font-size: 10px;padding-left: 25px;"> * No hidden charges</p>
+            <p style="color: #0099ff; margin: 0; font-size: 10px;padding-left: 25px;"> * Just awesome experiences</p>
+            </div>
+        </div>
+            
+            
+        </div>
+        <hr style="margin: 2px;">
+        <div class="table-responsive" style="background-color: #fff;">
+        <p style="cursor: pointer; margin: 5px;padding-left: 25px;" ng-click="showHowToRedeem = !showHowToRedeem">How Do I Redeem? <span class="glyphicon">&#xe114;</span></p>
+           <table class="table" ng-show="showHowToRedeem">
+              <!-- <tr>
+                <td style="text-align: center; color: #5bc0de;"><span class="glyphicon glyphicon-credit-card"></span></td>
+                <td>Buy Pass</td>
+              </tr> -->
+              <!-- <tr>
+                <td style="text-align: center; color: #5bc0de;"><span class="glyphicon glyphicon-comment"></span></td>
+                <td>Recive Code Via SMS</td>
+              </tr> -->
+              <tr>
+                <td style="text-align: center; color: #5bc0de;padding-left: 25px;"><span class="glyphicon glyphicon-gift"></span></td>
+                <td>Visit Participating Pub</td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: #5bc0de;padding-left: 25px;"><span class="glyphicon glyphicon-phone"></span></td>
+                <td>Give Phone No. to Waiter</td>
+              </tr>
+              <tr>
+                <td style="text-align: center; color: #5bc0de;padding-left: 25px;"><span class="glyphicon glyphicon-lock"></span></td>
+                <td>Exchange OTP</td>
+              </tr>
+              <!-- <tr>
+                <td style="text-align: center; color: #5bc0de;"><span class="fa fa-black-tie"></span></td>
+                <td>Show OTP to Waiter</td>
+              </tr> -->
+              <tr>
+                <td style="text-align: center; color: #5bc0de;padding-left: 25px;"><span class="glyphicon glyphicon-glass"></span></td>
+                <td>Enjoy Your Drink!</td>
+              </tr>
+            </table>
+        </div>
+        <div align="center">
+        <a class="btn btn-info btn-lg btn-block" ng-click="checkout(selectedPass)" id="checkoutBtn" style="bottom: 0;">Checkout for <i class="fa">&#xf156;</i>{{selectedPass.total}}</a>
+        </div>
+    </div>
+
+
+    <!-- <div class="footer navbar-fixed-bottom row" align="center" id="footer" style="background-color: #fff;font-family: 'Comfortaa',sans-serif;">
+        <div>
+        </div>
+    </div> -->
+
+</div>
+<style type="text/css">
+   #userDetail td{
+    padding: 5px 0px 5px 0px;
+   } 
+   input::-webkit-input-placeholder {
+color: #c3c3c3 !important;
+}
+ 
+input:-moz-placeholder { /* Firefox 18- */
+color: #c3c3c3 !important;  
+}
+ 
+input::-moz-placeholder {  /* Firefox 19+ */
+color: #c3c3c3 !important;  
+}
+ 
+input:-ms-input-placeholder {  
+color: #c3c3c3 !important;  
+}
+</style>

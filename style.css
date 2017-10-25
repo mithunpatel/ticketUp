@@ -178,9 +178,20 @@
 #myModal{
     padding-top: 10%;
 }
+
 .modal{
-  top:15%;
+  top:10%;
 }
+.modal-header {
+    padding: 1px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.modal-footer {
+     padding: 1px; 
+    text-align: right;
+    border-top: 1px solid #e5e5e5;
+}
+
 .modal-backdrop {
     position: fixed;
     top: 0;
@@ -288,6 +299,14 @@ input[type='radio']:checked:before {
         #user-detail p{
             font-size: 10px;
         }
+        #checkoutBtn{
+          bottom: 0;
+          position: fixed;
+          width: 90%;
+        }
+        #checkoutContainer{
+          margin-top: 11%;
+        }
     }
     @media (min-width: 992px) {
 #passImage{
@@ -350,6 +369,12 @@ input[type='radio']:checked:before {
         }
         #user-name{
             margin-top: -3% !important;
+        }
+        #checkoutContainer{
+          width: 600px;
+        }
+        #checkoutContainer{
+          margin-top: 5%;
         }
     }
 
